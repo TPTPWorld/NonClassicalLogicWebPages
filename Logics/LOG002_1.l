@@ -11,12 +11,12 @@
 
 % Syntax   : Number of formulae    :   14 (   6 unit)
 
-% Comments : 
+% Comments : See Logics/LOG001_2.l for details of the modal logic systems
 %------------------------------------------------------------------------------
 %----Include common definitions
 include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
-tff(name,name,$modal).
+tff(name,logic,$modal).
 
 tff(necessary_type,type,'{$box}' : $o > $o ).
 
