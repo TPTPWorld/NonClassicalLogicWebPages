@@ -14,23 +14,28 @@
 % Comments : 
 %------------------------------------------------------------------------------
 %----Include common definitions
-include('Logics/LOG001_1.l')
+include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
 %----Add many more here
 
-tff(modal_S4,definition,(
-    ( $modal_system_S5 
+tff(modal_system_K,definition,
+    ( $modal_system_K 
   <=> ( $modal_necessitation
-      & $modal_distribution
-      & $modal_M   % what's a meaningful name?
-      & $modal_4 ) )).   % what's a meaningful name?
+      & $modal_distribution ) ) ).
 
-tff(modal_S5,definition,(
+tff(modal_system_S4,definition,
+    ( $modal_system_S4 
+  <=> ( $modal_necessitation
+      & $modal_distribution
+      & $modal_axiom_M
+      & $modal_axiom_4 ) ) ).
+
+tff(modal_system_S5,definition,
     ( $modal_system_S5 
   <=> ( $modal_necessitation
       & $modal_distribution
-      & $modal_M   % what's a meaningful name?
-      & $modal_4   % what's a meaningful name?
-      & $modal_5 ) )).   % what's a meaningful name?
+      & $modal_axiom_M
+      & $modal_axiom_4
+      & $modal_axiom_5 ) ) ).
 
 %------------------------------------------------------------------------------

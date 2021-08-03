@@ -16,14 +16,14 @@
 %----Include common definitions
 include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
-tff(necessary_type,type,'{$necessary}' : $o > $o ).
+tff(necessary_type,type,'{$box}' : $o > $o ).
 
-tff(possibly_type,type,'{$possibly}' : $o > $o ).
+tff(possibly_type,type,'{$dia}' : $o > $o ).
 
 tff(necessary_shortform,definition,
-    '{$necessary}' == '[.]' ).
+    '{$box}' = '[.]' ).
 
 tff(possibly_shortform,definition,
-    '{$possibly}' == '<.>' ).
+    '{$dia}' = '<.>' ).
 
 %------------------------------------------------------------------------------

@@ -14,10 +14,14 @@
 % Comments : 
 %------------------------------------------------------------------------------
 %----Include common definitions
-include('Logics/LOG001_1.l')
-%----Include S5 definition
-include('Logics/LOG002_1.l',[modal_S5])
+include('Logics/LOG001_1.l').
+%----Include system definitions
+include('Logics/LOG001_2.l').
+%----Include generic modal logic definitions
+include('Logics/LOG002_1.l').
 %------------------------------------------------------------------------------
 tff(name,name,$modal_S5).
+
+tff(make_S5,axiom,$modal_system_S5).
 
 %------------------------------------------------------------------------------

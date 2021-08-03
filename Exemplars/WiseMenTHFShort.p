@@ -24,11 +24,11 @@
 % Comments : THF, short connectives
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
-    $modal =
-        [ $constants = $rigid,
-          $quantification = $varying,
-          $consequence = $local,
-          $modalities = $modal_system_S5 ] )).
+    $modal ==
+        [ $constants == $rigid,
+          $quantification == $varying,
+          $consequence == $local,
+          $modalities == $modal_system_S5 ] )).
 
 %----Type for the wise men
 thf(agent_type,type,wiseman: $tType).

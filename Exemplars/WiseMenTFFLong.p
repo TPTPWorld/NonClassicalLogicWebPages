@@ -24,11 +24,11 @@
 % Comments : TFF, long connectives
 %------------------------------------------------------------------------------
 tff(simple_s5,logic,(
-    $modal =
-        [ $constants = $rigid,
-          $quantification = $varying,
-          $consequence = $local,
-          $modalities = $modal_system_S5 ] )).
+    $modal ==
+        [ $constants == $rigid,
+          $quantification == $varying,
+          $consequence == $local,
+          $modalities == $modal_system_S5 ] )).
 
 %----Type for the wise men
 tff(agent_type,type,wiseman: $tType).

@@ -14,12 +14,14 @@
 % Comments : 
 %------------------------------------------------------------------------------
 %----Include common definitions
-include('Logics/LOG001_1.l')
+include('Logics/LOG001_1.l').
+%----Include system definitions
+include('Logics/LOG001_2.l').
 %----Include alethic modal logic definitions
-include('Logics/LOG003_1.l')
-%----Include S5 definition
-include('Logics/LOG002_1.l',[modal_S5])
+include('Logics/LOG003_1.l').
 %------------------------------------------------------------------------------
 tff(name,name,$alethic_modal_S5).
+
+tff(make_K,axiom,$modal_system_K).
 
 %------------------------------------------------------------------------------

@@ -21,11 +21,11 @@
 % Comments : TFF, short connectives
 %------------------------------------------------------------------------------
 tff(simple_s5,logic,(
-    $modal =
-        [ $constants = $rigid,
-          $quantification = $cumulative,
-          $consequence = $local,
-          $modalities = $modal_system_S5 ] )).
+    $modal ==
+        [ $constants == $rigid,
+          $quantification == $cumulative,
+          $consequence == $local,
+          $modalities == $modal_system_S5 ] )).
 
 tff(pour_a_type,type,pour_a: $i).
 
