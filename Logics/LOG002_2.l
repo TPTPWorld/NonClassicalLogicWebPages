@@ -14,11 +14,11 @@
 % Comments : 
 %------------------------------------------------------------------------------
 %----Include common definitions
-include('Logics/LOG001_1.l')
+include('Logics/LOG001_1.l').
 %----Include system definitions
 include('Logics/LOG001_2.l').
 %----Include generic modal logic definitions
-include('Logics/LOG002_1.l')
+include('Logics/LOG002_1.l').
 %------------------------------------------------------------------------------
 tff(name,name,$modal_K).
 

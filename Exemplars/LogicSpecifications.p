@@ -93,7 +93,7 @@ thf(instantiated_modality,logic,(
         $consequence == $global,
         $modalities ==
           [ $modal_axiom_K,
-             {$necessarily:#archer} == $modal_system_D ] ] )).
+            archer == $modal_system_D ] ] )).
 
 thf(funky_mixed,logic,(
     [ $modal ==
