@@ -27,14 +27,6 @@ tff(simple_s5,logic,(
           $consequence == $local,
           $modalities == $modal_system_S5 ] )).
 
-tff(pour_a_type,type,pour_a: $i).
-
-tff(pour_b_type,type,pour_b: $i).
-
-tff(pour_c_type,type,pour_c: $i).
-
-tff(make_c_type,type,make_c: $i).
-
 tff(acid_type,type,acid: $o).
 
 tff(pour_ab_make_axiom_1,axiom,(

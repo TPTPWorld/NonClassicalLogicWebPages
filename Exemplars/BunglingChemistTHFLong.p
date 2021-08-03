@@ -27,14 +27,6 @@ thf(simple_s5,logic,(
           $consequence == $local,
           $modalities == $modal_system_S5 ] )).
 
-thf(pour_a_type,type,pour_a: $i).
-
-thf(pour_b_type,type,pour_b: $i).
-
-thf(pour_c_type,type,pour_c: $i).
-
-thf(make_c_type,type,make_c: $i).
-
 thf(acid_type,type,acid: $o).
 
 thf(pour_ab_make_axiom_1,axiom,(
