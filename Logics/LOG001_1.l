@@ -14,81 +14,77 @@
 
 % Comments : 
 %------------------------------------------------------------------------------
-tff(box_type,type,'[.]' : $o > $o ).
+%----These two types are known internally
+% tff(box_type,type,[.] : $o > $o ).
 
-tff(dia_type,type,'<.>' : $o > $o ).
+% tff(dia_type,type,<.> : $o > $o ).
 
-tff(diamond,axiom,
-    ! [P: $o] :
-      ( <.>(P)
-    <=> ~ [.](~ P) ) ).
+tff(diamond,definition,
+    ( <.>(P)
+   == ~ [.](~ P) ) ).
+
+% tff(propositional_tautologies,definition,P that are tautologies in FOL).
+
+tff(modus_ponens,definition,
+    ( $modus_ponens
+   == ( [ P, P => Q]
+    --> [Q] ) ) ).
 
 tff(modal_necessitation,definition,
     ( $modal_necessitation
-  <=> ! [P: $o] :
-        ( [P]
-      --> [[.](P)] ) ) ).
+   == ( [P]
+    --> [[.](P)] ) ) ).
 
-tff(modal_distribution,definition,
+tff(modal_axiom_K,definition,
     ( $modal_distribution
-  <=> ! [A: $o,B: $o] :
-        ( [.](A => B)
-       => ( [.](A)
-         => [.](B) ) ) ) ).
+   == ( [.](A => B)
+     => ( [.](A)
+       => [.](B) ) ) ) ).
 
 tff(modal_axiom_D,definition,
     ( $modal_axiom_D
-  <=> ! [A: $o] :
-        ( [.](A)
-       => <.>(A) ) ) ).
+   == ( [.](A)
+     => <.>(A) ) ) ).
 
 tff(modal_axiom_M,definition,
     ( $modal_axiom_M
-  <=> ! [A: $o] :
-        ( [.](A)
-       => A ) ) ).
+   == ( [.](A)
+     => A ) ) ).
 
 tff(modal_axiom_4,definition,
     ( $modal_axiom_4
-  <=> ! [A: $o] :
-        ( [.](A)
-       => [.]([.](A)) ) ) ).  %----Can I omit the inner ()s?
+   == ( [.](A)
+     => [.]([.](A)) ) ) ).
 
 tff(modal_axiom_B,definition,
     ( $modal_axiom_B
-  <=> ! [A: $o] :
-        ( A
-       => [.](<.>(A)) ) ) ).
+   == ( A
+     => [.](<.>(A)) ) ) ).
 
 tff(modal_axiom_5,definition,
     ( $modal_axiom_5 
-  <=> ! [A: $o] :
-        ( <.>(A)
-       => [.](<.>(A)) ) ) ).
+   == ( <.>(A)
+     => [.](<.>(A)) ) ) ).
 
 tff(modal_axiom_CD,definition,
     ( $modal_axiom_CD
-  <=> ! [A: $o] :
-        ( <.>(A)
-       => [.](A) ) ) ).
+   == ( <.>(A)
+     => [.](A) ) ) ).
 
 tff(modal_axiom_boxM,definition,
     ( $modal_axiom_boxM
-  <=> ! [A: $o] : 
-        [.]
-          ( [.](A) 
-         => A ) ) ).
+   == [.]
+        ( [.](A)
+       => A ) ) ).
 
 tff(modal_axiom_C4,definition,
     ( $modal_axiom_C4
-  <=> ! [A: $o] :
-        ( [.]([.](A))
-       => [.](A) ) ) ).
+   == ( [.]([.](A))
+     => [.](A) ) ) ).
 
 tff(modal_axiom_C,definition,
     ( $modal_axiom_C
-  <=> ! [A: $o] :
-        ( <.>([.](A))
-       => [.](<.>(A)) ) ) ).
+   == ( <.>([.](A))
+     => [.](<.>(A)) ) ) ).
       
 %------------------------------------------------------------------------------
