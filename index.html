@@ -64,8 +64,8 @@ Connectives may be parameterized. A parameterized connective has the format
 where a parameter is one of:
 <UL>
 <LI> An index term starting with <TT>#</TT>. 
-     The index can be any constant (number, uninterpreted constant, TPTP
-     defined constant) or bound variable, of any type. 
+     The index can be any constant (uninterpreted constant, number, TPTP
+     defined constant) <!-- or bound variable,--> of any type. 
      The TPTP might provide predefined values, e.g., <TT>$past</TT>, for 
      individual logics. 
      Indices are part of the object logic. 
@@ -81,7 +81,7 @@ where a parameter is one of:
                <A HREF="BunglingChemistTHFLong.p">Bungling Chemists</A>
 <P>
 <LI> A key-value expression of form <EM>LHS</EM><TT> := </TT><EM>RHS</EM> 
-     where <EM>LHS</EM> is a TPTP defined constant, and EM>RHS</EM> is a term
+     where <EM>LHS</EM> is a TPTP defined constant, and <EM>RHS</EM> is a term
      (for TFF a <TT>tff_atomic_formula</TT>, for THF  a 
      <TT>thf_fof_function</TT>). 
      Examples:
