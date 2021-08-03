@@ -264,7 +264,7 @@ The example uses in THF:
 Annotated formulae with the (new) role <TT>logic</TT> are used to specify 
 the semantics of the modal logic.
 Such a formula begins with the keyword for the logic, which in this case is
-<TT>$modal</TT>, followed by <TT>:=</TT> and a list of properties value
+<TT>$modal</TT>, followed by <TT>==</TT> and a list of properties value
 assignments. 
 Properties may be specified for <TT>$constants</TT>, <TT>$quantification</TT>, 
 <TT>$consequence</TT>, and <TT>$modalities</TT>.
@@ -274,7 +274,7 @@ If the first element of a list of details is a value, that is the default
 value for all cases that are not specified in the rest of the list. 
 Each detail after the optional default value is the name of a relevant part 
 of the vocabulary used for the problem (e.g., the name of a type, a symbol, 
-an axiom, etc.) and followed by <TT>:=</TT> and a specification for that
+an axiom, etc.) and followed by <TT>==</TT> and a specification for that
 named part.
 There may be more than one annotated formula providing the logic
 specification, but no item's properties may be specified more than once.
@@ -352,35 +352,9 @@ The semantic properties and their possible values are:
      be given using <TT>$R</TT> as the accessibility relation.
 </UL>
 <P>
-The BNF grammar for this is linked from
+The BNF grammar is
 <A HREF="http://www.tptp.org/TPTP/SyntaxBNF.html#logic_defn_rule">
-here</A>, with the following being the semantic rules ...
-
-<PRE>
-&lt;logic_defn_rule>      :== &lt;logic_defn_LHS> &lt;assignment> &lt;logic_defn_RHS>
-&lt;logic_defn_LHS>       :== &lt;logic_defn_value> | &lt;thf_top_level_type>  | &lt;name>
-&lt;logic_defn_LHS>       :== $constants | $quantification | $consequence |
-                           $modalities
-%----The $constants, $quantification, and $consequence apply to all of the
-%----$modalities. Each of these may be specified only once, but not necessarily
-%----all in a single annotated formula.
-&lt;logic_defn_RHS>       :== &lt;logic_defn_value> | &lt;thf_unitary_formula>
-&lt;logic_defn_value>     :== &lt;defined_constant>
-&lt;logic_defn_value>     :== $rigid | $flexible |
-                           $constant | $varying | $cumulative | $decreasing |
-                           $local | $global |
-                           $modal_system_K | $modal_system_T | $modal_system_D |
-                           $modal_system_S4 | $modal_system_S5 |
-                           $modal_axiom_K | $modal_axiom_T | $modal_axiom_B |
-                           $modal_axiom_D | $modal_axiom_4 | $modal_axiom_5
-</PRE>
-... with some additions that affect <TT>&lt;thf_unitary_formula></TT>
-<PRE>
-&lt;thf_pair_connective>  ::= &lt;infix_equality> | &lt;infix_inequality> |
-                           &lt;binary_connective> | &lt;assignment>
-&lt;assignment>           ::= :=
-</PRE>
-
+here</A>.
 The grammar is not very restrictive on purpose, to enable working with other 
 logics as well.
 It is possible to create a lot of nonsense specifications, and to say the
@@ -389,142 +363,7 @@ The TPTP will provide some standard logic definitions, and some examples of
 possible use are provided below.
 We are considering implementing a tool to check the sanity of a specification.
 The list of keywords is not final.
-<P>
-<H3> Examples </H3>
-
-<PRE>
-%----Standard S5
-thf(simple_s5,logic,(
-    $modal =
-      [ $constants = $rigid,
-        $quantification = $constant,
-        $consequence = $global,
-        $modalities = $modal_system_S5 ] )).
-
-%----Constants The constant king_of_france has special semantics
-thf(human_type,type,(
-    human: $tType )).
-
-thf(king_of_france_constant,type,(
-    king_of_france: human )).
-
-thf(constants,logic,(
-    $modal =
-      [ $constants =
-          [ $constant,
-            king_of_france = $flexible ],
-        $quantification = $constant,
-        $consequence = $global,
-        $modalities = $modal_system_S5 ] )).
-
-%----Quantification may be different for any base type or compound type e.g.
-%----for type plushie
-thf(plushie_type,type,(
-    plushie: $tType )).
-
-thf(quantification,logic,(
-    $modal =
-      [ $constants = $rigid,
-        $quantification =
-          [ $constant,
-            plushie = $varying ],
-        $consequence = $global,
-        $modalities = $modal_system_S5 ] )).
-
-thf(different_modality,logic,(
-    $modal = 
-      [ $constants = $rigid,
-        $quantification =
-          [ $constant,
-            plushie = $varying ],
-        $consequence = $global,
-        $modalities = 
-          [ $modal_system_S4,
-            #king_of_france = $modal_system_S5 ] ] )).
-
-%----Consequence. All axioms same consequence except for ax1 which has a
-%----special consequence
-thf(ax1,axiom,(
-    $true )).
-
-thf(different_consequence,logic,(
-    $modal =
-      [ $constants = $rigid,
-        $quantification = $constant,
-        $consequence =
-          [ $global,
-            ax1 = $local ],
-        $modalities = $modal_system_S5 ] )).
-</PRE>
-
-<H3> Exotic Examples </H3>
-
-It's not clear if/how these might be supported - just putting out ideas here.
-
-<PRE>
-%----Something more exotic. a, b, and c are indices for multi-modal 
-%----operators, e.g., If a is a $int, it could be used with $box_int
-%----in an expression such as $box_int @ a @ p.
-thf(exotic,logic,(
-    $modal =
-      [ $constants = $flexible,
-        $quantification = $cumulative,
-        $consequence =
-          [ $global,
-            ax1 = $local ],
-        $modalities =
-          [ ! [X: $int] :
-              ( X =
-                  [ $modal_axiom_K,
-                    $modal_axiom_D ] ),
-            a = $modal_system_S5,
-            b = $modal_system_KB,
-            c = $modal_system_K ] ] )).
-
-thf(quantification,logic,( 
-    $modal =
-      [ $constants = $rigid,
-        $quantification = $constant,
-        $consequence = $global,
-        $modalities =
-          ! [X: $int] :
-            $ite($greater @ X @ 0,$modal_system_K,$modal_system_KB)] )).
-
-thf(instantiated_modality,logic,(
-    $modal =
-      [ $constants = $rigid,
-        $quantification = $constant,
-        $consequence = $global,
-        $modalities =
-          [ $modal_axiom_K,
-             {$necessarily:#archer} = $modal_system_D ] ] )).
-
-thf(funky_mixed,logic,(
-    [ $modal =
-        [ $constants = $rigid,
-          $quantification = $constant,
-          $consequence = $global,
-          $modalities = $modal_system_S5 ],
-      $dialetheic =
-        [ $truth_values =
-            [ $true,
-              $false,
-              $both ],
-          $embedding = $translational ] ] )).
-
-%----Default modality S5 as list of axioms K + T + 5. This is currently not 
-%----supported.
-thf(simple_s5_v3,logic,(
-    $modal =
-      [ $constants = $rigid,
-        $quantification = $constant,
-        $consequence = $global,
-        $modalities =
-          [ $modal_axiom_K,
-            $modal_axiom_T,
-            $modal_axiom_5 ] ] )).
-
-</PRE>
+<H3> See <TT>LogicSpecifications.p</TT> for Examples </H3>
 <P>
 <HR><!------------------------------------------------------------------------>
 <P>
