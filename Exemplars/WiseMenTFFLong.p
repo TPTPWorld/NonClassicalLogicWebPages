@@ -49,32 +49,6 @@ tff(white_spot_type,type,white_spot: wiseman > $o).
 tff(at_least_one_white_spot,axiom,(
     {$knows:#fool}((white_spot(a)) | (white_spot(b)) | (white_spot(c))) )).
 
-%----Could we rather say for all wiseman? E.g.,
-tff(at_least_one_white_spot_all,axiom,(
-    ! [X: wiseman] : 
-      {$knows:#X}
-        ( white_spot(a) 
-        | white_spot(b) 
-        | white_spot(c) ) )).
-%----This would apply everywhere below too. It might have difference
-%----consequences. Maybe it's necessary to say there are only three wise men:
-tff(three_wiseman,axiom,(
-    ! [X: wiseman] : 
-      ( X = a 
-      | X = b 
-      | X = c ) )).
-%----and they are all different:
-tff(distinct_wiseman,axiom,(
-    ( a != b 
-    & a != c 
-    & b != c ) )).
-%----Simplifications exploiting the high expressivity of our language are
-%----tempting and often more intuitive; but as long as such ad hoc formulations
-%----are (i) not automated and (ii) not fully sanity checked (or semantically
-%----verified) one has to be careful with claims that they realize the intended
-%----meaning. The modified examples illustrate syntax aspects, they are not yet
-%----claimed to be verified encodings of the wise men puzzle.
-
 %----If one agent has a white spot all other agents can see this
 tff(b_knows_a,axiom,(
     {$knows:#fool}(
@@ -106,15 +80,6 @@ tff(b_knows_c,axiom,(
       ( white_spot(c) 
      => {$knows:#b}(white_spot(c)) ) ) )).
 
-%----Could we rather say ...
-tff(others_know,axiom,(
-    ! [X: wiseman] : 
-      {$knows:#X}(
-        ! [Has: wiseman, Knows: wiseman] :
-          ( ( white_spot(Has)
-            & Has != Knows )
-         => {$knows:#Knows}(white_spot(Has) ) ) ) )).
-
 %----Black spots are visible
 tff(b_knows_not_a,axiom,(
     {$knows:#fool}(
@@ -145,15 +110,6 @@ tff(b_knows_not_c,axiom,(
     {$knows:#fool}( 
       ( ~ white_spot(c) 
      => {$knows:#b}(~ white_spot(c)) ) ) )).
-
-%----Could we rather say ...
-tff(others_know_not,axiom,(
-    ! [X: wiseman] : 
-      {$knows:#X}(
-        ! [HasNot: wiseman,Knows: wiseman] :
-          ( ~ white_spot(HasNot)
-            & HasNot != Knows )
-         => {$knows:#Knows}(~ white_spot(HasNot)) ) )).
 
 %----a and b don't know their situation
 tff(a_not_know,axiom,(

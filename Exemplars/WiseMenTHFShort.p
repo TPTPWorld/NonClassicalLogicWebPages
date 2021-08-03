@@ -52,32 +52,6 @@ thf(at_least_one_white_spot,axiom,(
       | (white_spot @ b)
       | (white_spot @ c) ) )).
 
-%----Could we rather say for all wiseman? E.g.,
-thf(at_least_one_white_spot_all,axiom,(
-    ! [X: wiseman] : 
-      ( [#X] @ 
-        ( (white_spot @ a)
-        | (white_spot @ b)
-        | (white_spot @ c) ) ) )).
-%----This would apply everywhere below too. It might have difference
-%----consequences. Maybe it's necessary to say there are only three wise men:
-thf(three_wiseman,axiom,(
-    ! [X: wiseman] : 
-      ( X = a 
-      | X = b 
-      | X = c) )).
-%----and they are all different:
-thf(distinct_wiseman,axiom,(
-    ( a != b 
-    & a != c 
-    & b != c ) )).
-%----Simplifications exploiting the high expressivity of our language are
-%----tempting and often more intuitive; but as long as such ad hoc formulations
-%----are (i) not automated and (ii) not fully sanity checked (or semantically
-%----verified) one has to be careful with claims that they realize the intended
-%----meaning. The modified examples illustrate syntax aspects, they are not yet
-%----claimed to be verified encodings of the wise men puzzle.
-
 %----If one agent has a white spot all other agents can see this
 thf(b_knows_a,axiom,(
     [#fool] @ 
@@ -109,15 +83,6 @@ thf(b_knows_c,axiom,(
       ( (white_spot @ c)
      => ( [#b] @ (white_spot @ c) ) ) )).
 
-%----Could we rather say ...
-thf(others_know,axiom,(
-    ! [X: wiseman] : 
-      ( [#X] @
-        ! [Has: wiseman,Knows: wiseman] :
-          ( ( (white_spot @ Has)
-            & Has != Knows )
-         => ( [#Knows] @ (white_spot @ Has) ) ) ) )).
-
 %----Black spots are visible
 thf(b_knows_not_a,axiom,(
     [#fool] @ 
@@ -148,15 +113,6 @@ thf(b_knows_not_c,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ c)
      => ( [#b] @ ( ~ (white_spot @ c) ) ) ) )).
-
-%----Could we rather say ...
-thf(others_know_not,axiom,(
-    ! [X: wiseman] : 
-      ( [#X] @
-        ! [HasNot: wiseman,Knows: wiseman] :
-          ( ( ~ (white_spot @ HasNot)
-            & HasNot != Knows )
-         => ( [#Knows] @ ~ (white_spot @ HasNot) ) ) ) )).
 
 %----a and b don't know their situation
 thf(a_not_know,axiom,(
