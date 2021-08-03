@@ -16,6 +16,8 @@
 %----Include common definitions
 include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
+tff(name,name,$alethic_modal).
+
 tff(necessary_type,type,'{$necessary}' : $o > $o ).
 
 tff(possibly_type,type,'{$possibly}' : $o > $o ).

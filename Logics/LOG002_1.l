@@ -1,7 +1,7 @@
 %------------------------------------------------------------------------------
 % File     : LOG003_1 : TPTP v9.0.0. Released v9.0.0.
-% Domain   : Alethic modal logics
-% Name     : Alethic modal logic definitions
+% Domain   : Generic modal logics
+% Name     : Generic modal logic definitions
 % Version  : Especial.
 % English  : 
 
@@ -16,14 +16,16 @@
 %----Include common definitions
 include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
+tff(name,name,$modal).
+
 tff(necessary_type,type,'{$box}' : $o > $o ).
 
 tff(possibly_type,type,'{$dia}' : $o > $o ).
 
 tff(necessary_shortform,definition,
-    '{$box}' = '[.]' ).
+    '{$box}' == '[.]' ).
 
 tff(possibly_shortform,definition,
-    '{$dia}' = '<.>' ).
+    '{$dia}' == '<.>' ).
 
 %------------------------------------------------------------------------------

@@ -14,16 +14,15 @@
 
 % Comments : 
 %------------------------------------------------------------------------------
-%----These two types are known internally
-% tff(box_type,type,[.] : $o > $o ).
+tff(box_type,type,'[.]' : $o > $o ).
 
-% tff(dia_type,type,<.> : $o > $o ).
+tff(dia_type,type,'<.>' : $o > $o ).
 
 tff(diamond,definition,
     ( <.>(P)
    == ~ [.](~ P) ) ).
 
-% tff(propositional_tautologies,definition,P that are tautologies in FOL).
+% tff(propositional_tautologies,definition,P that are classical tautologies).
 
 tff(modus_ponens,definition,
     ( $modus_ponens
