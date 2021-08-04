@@ -14,18 +14,19 @@
 
 % Refs     : [Gol92] Goldblatt (1992), Logics of Time and Computation
 %          : [Bal98] Baldoni (1998), Normal Multimodal Logics: Automatic De
-% Source   : [TPTP]
-% Names    : 
+%          : [Ste21] Steen (2021), Email to Geoff Sutcliffe
+% Source   : [Ste21]
+% Names    : ex5_multimodal_wiseman.p [Ste21]
 
 % Status   : Theorem
 % Rating   : ? v8.0.0
 % Syntax   : TBA
-% SPC      : THN_THM_NEQ
+% SPC      : TFN_THM_NEQ
 
-% Comments : Short connectives
+% Comments : Long connectives
 %------------------------------------------------------------------------------
 tff(simple_s5,logic,(
-    $modal ==
+    $epistemic_modal ==
         [ $constants == $rigid,
           $quantification == $varying,
           $consequence == $global,
@@ -48,82 +49,79 @@ tff(white_spot_type,type,white_spot: wiseman > $o).
 
 %----At least one wiseman has a white spot
 tff(at_least_one_white_spot,axiom,(
-    [#index_fool](
-      ( white_spot(a)
-      | white_spot(b)
-      | white_spot(c) ) )).
+    {$knows:#fool}((white_spot(a)) | (white_spot(b)) | (white_spot(c))) )).
 
 %----If one agent has a white spot all other agents can see this
 tff(b_knows_a,axiom,(
-    [#index_fool](
+    {$knows:#fool}(
       ( white_spot(a)
-     => [#index_b](white_spot(a)) ) ) )).
+     => {$knows:#b}(white_spot(a)) ) ) )).
 
 tff(c_knows_a,axiom,(
-    [#index_fool](
+    {$knows:#fool}(
       ( white_spot(a)
-     => [#index_c](white_spot(a)) ) ) )).
+     => {$knows:#c}(white_spot(a)) ) ) )).
 
 tff(a_knows_a,axiom,(
-    [#index_fool](
-      ( white_spot(b)
-     => [#index_a](white_spot(b)) ) ) )).
+    {$knows:#fool}(
+      ( white_spot(b) 
+     => {$knows:#a}(white_spot(b)) ) ) )).
 
 tff(c_knows_b,axiom,(
-    [#index_fool](
-      ( white_spot(b)
-     => [#index_c](white_spot(b)) ) ) )).
+    {$knows:#fool}(
+      ( white_spot(b) 
+     => {$knows:#c}(white_spot(b)) ) ) )).
 
 tff(a_knows_c,axiom,(
-    [#index_fool](
-      ( white_spot(c)
-     => [#index_a](white_spot(c)) ) ) )).
+    {$knows:#fool}(
+      ( white_spot(c) 
+     => {$knows:#a}(white_spot(c)) ) ) )).
 
 tff(b_knows_c,axiom,(
-    [#index_fool](
-      ( white_spot(c)
-     => [#index_b](white_spot(c)) ) ) )).
+    {$knows:#fool}(
+      ( white_spot(c) 
+     => {$knows:#b}(white_spot(c)) ) ) )).
 
 %----Black spots are visible
 tff(b_knows_not_a,axiom,(
-    [#index_fool](
-      ( ~ white_spot(a)
-     => [#index_b]( ~ (white_spot(a)) ) ) ) )).
+    {$knows:#fool}(
+      ( ~ white_spot(a) 
+     => {$knows:#b}(~ white_spot(a)) ) ) )).
 
 tff(c_knows_not_a,axiom,(
-    [#index_fool](
-      ( ~ white_spot(a)
-     => [#index_c]( ~ (white_spot(a)) ) ) ) )).
+    {$knows:#fool}( 
+      ( ~ white_spot(a) 
+     => {$knows:#c}(~ white_spot(a)) ) ) )).
 
 tff(a_knows_not_b,axiom,(
-    [#index_fool](
-      ( ~ white_spot(b)
-     => [#index_a]( ~ (white_spot(b)) ) ) ) )).
+    {$knows:#fool}( 
+      ( ~ white_spot(b) 
+     => {$knows:#a}(~ white_spot(b)) ) ) )).
 
 tff(c_knows_not_b,axiom,(
-    [#index_fool](
-      ( ~ white_spot(b)
-     => [#index_c]( ~ (white_spot(b)) ) ) ) )).
+    {$knows:#fool}( 
+      ( ~ white_spot(b) 
+     => {$knows:#c}(~ white_spot(b)) ) ) )).
 
 tff(a_knows_not_c,axiom,(
-    [#index_fool](
-      ( ~ white_spot(c)
-     => [#index_a]( ~ (white_spot(c)) ) ) ) )).
+    {$knows:#fool}( 
+      ( ~ white_spot(c) 
+     => {$knows:#a}(~ white_spot(c)) ) ) )).
 
 tff(b_knows_not_c,axiom,(
-    [#index_fool](
-      ( ~ white_spot(c)
-     => [#index_b]( ~ (white_spot(c)) ) ) ) )).
+    {$knows:#fool}( 
+      ( ~ white_spot(c) 
+     => {$knows:#b}(~ white_spot(c)) ) ) )).
 
 %----a and b don't know their situation
 tff(a_not_know,axiom,(
-    [#index_fool]( ~ [#index_a](white_spot(a)) ) )).
+    {$knows:#fool}(~ {$knows:#a}(white_spot(a))) )).
 
 tff(b_not_know,axiom,(
-    [#index_fool]( ~ [#index_b](white_spot(b)) ) )).
+    {$knows:#fool}(~ {$knows:#b}(white_spot(b))) )).
 
 %----Prove c knows white spot
 tff(c_knows,conjecture,(
-    [#index_c](white_spot(c)) )).
+    {$knows:#c}(white_spot(c)) )).
 
 %------------------------------------------------------------------------------

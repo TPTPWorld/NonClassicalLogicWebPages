@@ -21,7 +21,7 @@
 % Comments : Long connectives
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
-    $modal ==
+    $alethic_modal ==
         [ $constants == $rigid,
           $quantification == $cumulative,
           $consequence == $local,

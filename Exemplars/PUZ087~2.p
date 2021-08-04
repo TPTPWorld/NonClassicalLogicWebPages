@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : PUZ087~1 : TPTP v8.0.0. Released v8.0.0.
+% File     : PUZ087~2 : TPTP v8.0.0. Released v8.0.0.
 % Domain   : Puzzles
 % Problem  : Wise men
 % Version  : Especial.
@@ -55,73 +55,73 @@ tff(at_least_one_white_spot,axiom,(
 tff(b_knows_a,axiom,(
     {$knows:#index_fool}(
       ( white_spot(a)
-     => {$knows:#b}(white_spot(a)) ) ) )).
+     => {$knows:#index_b}(white_spot(a)) ) ) )).
 
 tff(c_knows_a,axiom,(
     {$knows:#index_fool}(
       ( white_spot(a)
-     => {$knows:#c}(white_spot(a)) ) ) )).
+     => {$knows:#index_c}(white_spot(a)) ) ) )).
 
 tff(a_knows_a,axiom,(
     {$knows:#index_fool}(
       ( white_spot(b) 
-     => {$knows:#a}(white_spot(b)) ) ) )).
+     => {$knows:#index_a}(white_spot(b)) ) ) )).
 
 tff(c_knows_b,axiom,(
     {$knows:#index_fool}(
       ( white_spot(b) 
-     => {$knows:#c}(white_spot(b)) ) ) )).
+     => {$knows:#index_c}(white_spot(b)) ) ) )).
 
 tff(a_knows_c,axiom,(
     {$knows:#index_fool}(
       ( white_spot(c) 
-     => {$knows:#a}(white_spot(c)) ) ) )).
+     => {$knows:#index_a}(white_spot(c)) ) ) )).
 
 tff(b_knows_c,axiom,(
     {$knows:#index_fool}(
       ( white_spot(c) 
-     => {$knows:#b}(white_spot(c)) ) ) )).
+     => {$knows:#index_b}(white_spot(c)) ) ) )).
 
 %----Black spots are visible
 tff(b_knows_not_a,axiom,(
     {$knows:#index_fool}(
       ( ~ white_spot(a) 
-     => {$knows:#b}(~ white_spot(a)) ) ) )).
+     => {$knows:#index_b}(~ white_spot(a)) ) ) )).
 
 tff(c_knows_not_a,axiom,(
     {$knows:#index_fool}( 
       ( ~ white_spot(a) 
-     => {$knows:#c}(~ white_spot(a)) ) ) )).
+     => {$knows:#index_c}(~ white_spot(a)) ) ) )).
 
 tff(a_knows_not_b,axiom,(
     {$knows:#index_fool}( 
       ( ~ white_spot(b) 
-     => {$knows:#a}(~ white_spot(b)) ) ) )).
+     => {$knows:#index_a}(~ white_spot(b)) ) ) )).
 
 tff(c_knows_not_b,axiom,(
     {$knows:#index_fool}( 
       ( ~ white_spot(b) 
-     => {$knows:#c}(~ white_spot(b)) ) ) )).
+     => {$knows:#index_c}(~ white_spot(b)) ) ) )).
 
 tff(a_knows_not_c,axiom,(
     {$knows:#index_fool}( 
       ( ~ white_spot(c) 
-     => {$knows:#a}(~ white_spot(c)) ) ) )).
+     => {$knows:#index_a}(~ white_spot(c)) ) ) )).
 
 tff(b_knows_not_c,axiom,(
     {$knows:#index_fool}( 
       ( ~ white_spot(c) 
-     => {$knows:#b}(~ white_spot(c)) ) ) )).
+     => {$knows:#index_b}(~ white_spot(c)) ) ) )).
 
 %----a and b don't know their situation
 tff(a_not_know,axiom,(
-    {$knows:#index_fool}(~ {$knows:#a}(white_spot(a))) )).
+    {$knows:#index_fool}(~ {$knows:#index_a}(white_spot(a))) )).
 
 tff(b_not_know,axiom,(
-    {$knows:#index_fool}(~ {$knows:#b}(white_spot(b))) )).
+    {$knows:#index_fool}(~ {$knows:#index_b}(white_spot(b))) )).
 
 %----Prove c knows white spot
 tff(c_knows,conjecture,(
-    {$knows:#c}(white_spot(c)) )).
+    {$knows:#index_c}(white_spot(c)) )).
 
 %------------------------------------------------------------------------------
