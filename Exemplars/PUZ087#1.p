@@ -22,10 +22,10 @@
 % Syntax   : TBA
 % SPC      : THN_THM_NEQ
 
-% Comments : Long connectives
+% Comments : Short connectives
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
-    $epistemic_modal ==
+    $modal ==
         [ $constants == $rigid,
           $quantification == $varying,
           $consequence == $local,
@@ -57,73 +57,73 @@ thf(at_least_one_white_spot,axiom,(
 thf(b_knows_a,axiom,(
     [#fool] @ 
       ( (white_spot @ a)
-     => ( {$knows#index_b} @ (white_spot @ a) ) ) )).
+     => ( [#index_b] @ (white_spot @ a) ) ) )).
 
 thf(c_knows_a,axiom,(
     [#fool] @ 
       ( (white_spot @ a)
-     => ( {$knows#index_c} @ (white_spot @ a) ) ) )).
+     => ( [#index_c] @ (white_spot @ a) ) ) )).
 
 thf(a_knows_a,axiom,(
     [#fool] @ 
       ( (white_spot @ b)
-     => ( {$knows#index_a} @ (white_spot @ b) ) ) )).
+     => ( [#index_a] @ (white_spot @ b) ) ) )).
 
 thf(c_knows_b,axiom,(
     [#fool] @ 
       ( (white_spot @ b)
-     => ( {$knows#index_c} @ (white_spot @ b) ) ) )).
+     => ( [#index_c] @ (white_spot @ b) ) ) )).
 
 thf(a_knows_c,axiom,(
     [#fool] @ 
       ( (white_spot @ c)
-     => ( {$knows#index_a} @ (white_spot @ c) ) ) )).
+     => ( [#index_a] @ (white_spot @ c) ) ) )).
 
 thf(b_knows_c,axiom,(
     [#fool] @ 
       ( (white_spot @ c)
-     => ( {$knows#index_b} @ (white_spot @ c) ) ) )).
+     => ( [#index_b] @ (white_spot @ c) ) ) )).
 
 %----Black spots are visible
 thf(b_knows_not_a,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ a)
-     => ( {$knows#index_b} @ ( ~ (white_spot @ a) ) ) ) )).
+     => ( [#index_b] @ ( ~ (white_spot @ a) ) ) ) )).
 
 thf(c_knows_not_a,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ a)
-     => ( {$knows#index_c} @ ( ~ (white_spot @ a) ) ) ) )).
+     => ( [#index_c] @ ( ~ (white_spot @ a) ) ) ) )).
 
 thf(a_knows_not_b,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ b)
-     => ( {$knows#index_a} @ ( ~ (white_spot @ b) ) ) ) )).
+     => ( [#index_a] @ ( ~ (white_spot @ b) ) ) ) )).
 
 thf(c_knows_not_b,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ b)
-     => ( {$knows#index_c} @ ( ~ (white_spot @ b) ) ) ) )).
+     => ( [#index_c] @ ( ~ (white_spot @ b) ) ) ) )).
 
 thf(a_knows_not_c,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ c)
-     => ( {$knows#index_a} @ ( ~ (white_spot @ c) ) ) ) )).
+     => ( [#index_a] @ ( ~ (white_spot @ c) ) ) ) )).
 
 thf(b_knows_not_c,axiom,(
     [#fool] @ 
       ( ~ (white_spot @ c)
-     => ( {$knows#index_b} @ ( ~ (white_spot @ c) ) ) ) )).
+     => ( [#index_b] @ ( ~ (white_spot @ c) ) ) ) )).
 
 %----a and b don't know their situation
 thf(a_not_know,axiom,(
-    [#fool] @ ( ~ ( {$knows#index_a} @ (white_spot @ a) ) ) )).
+    [#fool] @ ( ~ ( [#index_a] @ (white_spot @ a) ) ) )).
 
 thf(b_not_know,axiom,(
-    [#fool] @ ( ~ ( {$knows#index_b} @ (white_spot @ b) ) ) )).
+    [#fool] @ ( ~ ( [#index_b] @ (white_spot @ b) ) ) )).
 
 %----Prove c knows white spot
 thf(c_knows,conjecture,(
-    {$knows#index_c} @ (white_spot @ c) )).
+    [#index_c] @ (white_spot @ c) )).
 
 %------------------------------------------------------------------------------
