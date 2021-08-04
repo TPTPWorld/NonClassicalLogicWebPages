@@ -48,79 +48,79 @@ tff(white_spot_type,type,white_spot: wiseman > $o).
 
 %----At least one wiseman has a white spot
 tff(at_least_one_white_spot,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(a)
       | white_spot(b)
       | white_spot(c) ) )).
 
 %----If one agent has a white spot all other agents can see this
 tff(b_knows_a,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(a)
      => [#index_b](white_spot(a)) ) ) )).
 
 tff(c_knows_a,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(a)
      => [#index_c](white_spot(a)) ) ) )).
 
 tff(a_knows_a,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(b)
      => [#index_a](white_spot(b)) ) ) )).
 
 tff(c_knows_b,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(b)
      => [#index_c](white_spot(b)) ) ) )).
 
 tff(a_knows_c,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(c)
      => [#index_a](white_spot(c)) ) ) )).
 
 tff(b_knows_c,axiom,(
-    [#fool](
+    [#index_fool](
       ( white_spot(c)
      => [#index_b](white_spot(c)) ) ) )).
 
 %----Black spots are visible
 tff(b_knows_not_a,axiom,(
-    [#fool](
+    [#index_fool](
       ( ~ white_spot(a)
      => [#index_b]( ~ (white_spot(a)) ) ) ) )).
 
 tff(c_knows_not_a,axiom,(
-    [#fool](
+    [#index_fool](
       ( ~ white_spot(a)
      => [#index_c]( ~ (white_spot(a)) ) ) ) )).
 
 tff(a_knows_not_b,axiom,(
-    [#fool](
+    [#index_fool](
       ( ~ white_spot(b)
      => [#index_a]( ~ (white_spot(b)) ) ) ) )).
 
 tff(c_knows_not_b,axiom,(
-    [#fool](
+    [#index_fool](
       ( ~ white_spot(b)
      => [#index_c]( ~ (white_spot(b)) ) ) ) )).
 
 tff(a_knows_not_c,axiom,(
-    [#fool](
+    [#index_fool](
       ( ~ white_spot(c)
      => [#index_a]( ~ (white_spot(c)) ) ) ) )).
 
 tff(b_knows_not_c,axiom,(
-    [#fool](
+    [#index_fool](
       ( ~ white_spot(c)
      => [#index_b]( ~ (white_spot(c)) ) ) ) )).
 
 %----a and b don't know their situation
 tff(a_not_know,axiom,(
-    [#fool]( ~ [#index_a](white_spot(a)) ) )).
+    [#index_fool]( ~ [#index_a](white_spot(a)) ) )).
 
 tff(b_not_know,axiom,(
-    [#fool]( ~ [#index_b](white_spot(b)) ) )).
+    [#index_fool]( ~ [#index_b](white_spot(b)) ) )).
 
 %----Prove c knows white spot
 tff(c_knows,conjecture,(
