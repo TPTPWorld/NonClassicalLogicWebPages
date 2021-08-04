@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : PUZ087~3 : TPTP v8.0.0. Released v8.0.0.
+% File     : PUZ087~3 : TPTP v9.0.0. Released v9.0.0.
 % Domain   : Puzzles
 % Problem  : Wise men
 % Version  : Especial.
@@ -18,7 +18,7 @@
 % Names    : 
 
 % Status   : Theorem
-% Rating   : ? v8.0.0
+% Rating   : ? v9.0.0
 % Syntax   : TBA
 % SPC      : THN_THM_NEQ
 
