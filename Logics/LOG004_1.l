@@ -5,11 +5,11 @@
 % Version  : Especial.
 % English  : 
 
-% Refs     : 
-% Source   : 
+% Refs     : [Hil71] Hilpinen (1971), Deontic Logic: Introductory and Syste
+% Source   : [TPTP]
 % Names    : 
 
-% Syntax   : Number of formulae    :   14 (   6 unit)
+% Syntax   : TBA
 
 % Comments : See Logics/LOG001_2.l for details of the modal logic systems
 %------------------------------------------------------------------------------

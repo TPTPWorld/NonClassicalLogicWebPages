@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : PUZ999~1 : TPTP v8.0.0. Released v8.0.0.
+% File     : PUZ087#2 : TPTP v8.0.0. Released v8.0.0.
 % Domain   : Puzzles
 % Problem  : Wise men
 % Version  : Especial.
@@ -12,16 +12,17 @@
 %            of them to find out the colour of his own spot. After a while, the
 %            wisest correctly answered that his spot was white.
 
-% Refs     :
-% Source   :
-% Names    : ex5_multimodal_wiseman.p
+% Refs     : [Gol92] Goldblatt (1992), Logics of Time and Computation
+%          : [Bal98] Baldoni (1998), Normal Multimodal Logics: Automatic De
+% Source   : [TPTP]
+% Names    : 
 
 % Status   : Theorem
 % Rating   : ? v8.0.0
 % Syntax   : TBA
 % SPC      : THN_THM_NEQ
 
-% Comments : THF, short connectives
+% Comments : Short connectives
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
     $modal ==

@@ -5,11 +5,11 @@
 % Version  : Especial.
 % English  : 
 
-% Refs     : 
-% Source   : 
+% Refs     : [vDH15] van Ditmarsch et al. (2015), Handbook of Epistemic Log
+% Source   : [TPTP]
 % Names    : 
 
-% Syntax   : Number of formulae    :   14 (   6 unit)
+% Syntax   : 
 
 % Comments : See Logics/LOG001_2.l for details of the modal logic systems
 %------------------------------------------------------------------------------
