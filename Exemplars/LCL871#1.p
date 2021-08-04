@@ -20,7 +20,7 @@
 thf(simple_s5,logic,(
     $modal ==
         [ $constants == $rigid,
-          $quantification == $decreasing,
+          $quantification == $cumulative,
           $consequence == $global,
           $modalities == $modal_system_K ] )).
 
