@@ -5,11 +5,11 @@
 % Version  : Especial.
 % English  : 
 
-% Refs     : 
-% Source   : 
+% Refs     : [BBW06] Blackburn  et al. (2006), Handbook of Modal Logic
+% Source   : [TPTP]
 % Names    : 
 
-% Syntax   : Number of formulae    :   14 (   6 unit)
+% Syntax   : TBA
 
 % Comments : See Logics/LOG001_2.l for details of the modal logic systems
 %------------------------------------------------------------------------------
@@ -20,12 +20,12 @@ tff(name,logic,$alethic_modal).
 
 tff(necessary_type,type,'{$necessary}' : $o > $o ).
 
-tff(possibly_type,type,'{$possibly}' : $o > $o ).
+tff(possible_type,type,'{$possible}' : $o > $o ).
 
 tff(necessary_shortform,definition,
     '{$necessary}' == '[.]' ).
 
-tff(possibly_shortform,definition,
-    '{$possibly}' == '<.>' ).
+tff(possible_shortform,definition,
+    '{$possible}' == '<.>' ).
 
 %------------------------------------------------------------------------------

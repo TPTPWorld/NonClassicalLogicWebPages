@@ -1,11 +1,11 @@
 %------------------------------------------------------------------------------
 % File     : LOG003_1 : TPTP v9.0.0. Released v9.0.0.
-% Domain   : Generic modal logics
-% Name     : Generic modal logic definitions
+% Domain   : Deontic modal logics
+% Name     : Deontic modal logic definitions
 % Version  : Especial.
 % English  : 
 
-% Refs     : [BBW06] Blackburn  et al. (2006), Handbook of Modal Logic
+% Refs     : [Hil71] Hilpinen (1971), Deontic Logic: Introductory and Syste
 % Source   : [TPTP]
 % Names    : 
 
@@ -16,16 +16,16 @@
 %----Include common definitions
 include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
-tff(name,logic,$modal).
+tff(name,logic,$deontic_modal).
 
-tff(box_type,type,'{$box}' : $o > $o ).
+tff(obligatory_type,type,'{$obligatory}' : $o > $o ).
 
-tff(dia_type,type,'{$dia}' : $o > $o ).
+tff(permissible_type,type,'{$permissible}' : $o > $o ).
 
-tff(box_shortform,definition,
-    '{$box}' == '[.]' ).
+tff(obligatory_shortform,definition,
+    '{$obligatory}' == '[.]' ).
 
-tff(dia_shortform,definition,
-    '{$dia}' == '<.>' ).
+tff(permissible_shortform,definition,
+    '{$permissible}' == '<.>' ).
 
 %------------------------------------------------------------------------------

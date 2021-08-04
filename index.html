@@ -1,5 +1,4 @@
-
-HTML>
+<HTML>
 <HEAD>
 <TITLE>Non-classical Logics</TITLE>
 <style type="text/css">
@@ -32,21 +31,20 @@ non-classical logics with
 <LI> Consistency throughout TPTP dialects
 </UL>
 
-<P>
-<HR><!------------------------------------------------------------------------>
-<H2> Syntactic Extension </H2>
-
 <H3>Overview</H3>
 <UL>
-<LI> A long form for all operators (connectives) of any non-classical logic.
-     The long form contains the full name of a non-classical operator as 
-     defined words e.g. <TT>$permissible</TT>.
+<LI> A long form for all connectives of any non-classical logic.
+     The long form contains the full name of a connective as defined words 
+     e.g. <TT>$permissible</TT>.
 <LI> A short form for selected connectives in selected non-classical logics,
      e.g., <TT>[.]</TT> and <TT>&lt;.&gt;</TT> for <TT>$necessary</TT> and
      <TT>$possible</TT> in alethic modal logic.
+<LI> A seperate specification of the semantics.
 </UL>
 
-<H3>Long Form</H3>
+<P>
+<HR><!------------------------------------------------------------------------>
+<H2>Connectives Long Form</H2>
 
 Connectives belonging to a logic get unique defined names, e.g., 
 <TT>$necessary</TT>. 
@@ -54,32 +52,49 @@ The connective is written in <TT>{}</TT> brackets, and the application is
 functional.
 Examples:
 <PRE>
-    {$necessary}(something_that_is_necessary)
-    {$knows} @ knowledge_context @ something_that_is_known
+    tff(pigs_might_fly_type,type,pigs_might_fly: $o ).
+
+    tff(no_flying_pigs,axiom,
+        ~ {$possible}(pigs_might_fly) ).
+
+    tff(something_is_possible,axiom,
+        ? [P: $o] : {$possible}(P) ).
+
+    thf(forbidden_flying_pigs,axiom,
+        {$forbidden} @ pigs_might_fly ).
+
+    thf(everything_is_permissible,axiom,
+        ! [P: $o] : {$permissible} @ P ).
 </PRE>
 
-Connectives may be parameterized. A parameterized connective has the format
-<PRE>
-    {connective:parameter<SUB>1</SUB>,parameter<SUB>2</SUB>,...} 
-</PRE>
-where a parameter is one of:
+Connectives may have a list of parameters, where a parameter is one of:
 <UL>
-<LI> An index term starting with <TT>#</TT>. 
+<LI> A optional single initial index term starting with <TT>#</TT>. 
      The index can be any constant (uninterpreted constant, number, TPTP
      defined constant) <!-- or bound variable,--> of any type. 
      The TPTP might provide predefined values, e.g., <TT>$past</TT>, for 
      individual logics. 
-     Indices are part of the object logic. 
+     Indices are distinct from each other and from object logic terms.
      Examples:
 <PRE>
-    {$necessary:#1}(something_that_is_necessary_for_1)
-    {$knows:#archer} @ knowledge_context @ something_that_is_known_by_archer
+    tff(an_individual_type,type,me: $i ).
+
+    tff(for_me_it_is_possible,axiom,
+        {$possible:#me}(pigs_might_fly) ).
+
+    tff(for_me_something_is_possible,axiom,
+        ? [P: $o] : {$possible:#me}(P) ).
+
+    thf(agent_type,type,agent: $tType ).
+
+    thf(archer_type,type,archer: agent ).
+
+    thf(archer_knows_flying_pigs,axiom,
+        {$knows:#archer} @ pigs_might_fly ).
+
+    thf(for_archer_everything_is_permissible,axiom,
+        ! [P: $o] : {$permissible:#archer} @ P ).
 </PRE>
-     Only one index is allowed.
-     Indices cannot be complex terms/formulae.
-     <P>
-     Examples: <A HREF="WiseMenTFFLong.p">Wise men puzzle</A>,
-               <A HREF="BunglingChemistTHFLong.p">Bungling Chemists</A>
 <P>
 <LI> A key-value expression of form <EM>LHS</EM><TT> := </TT><EM>RHS</EM> 
      where <EM>LHS</EM> is a TPTP defined constant, and <EM>RHS</EM> is a term
@@ -92,6 +107,7 @@ where a parameter is one of:
      </PRE>
 </UL>
 
+<!--
 Users may define common abbreviations for connectives, e.g., <TT>box</TT>
 for <TT>$necessary</TT> in modal logic, in statements with definition roles.
 Example:
@@ -99,186 +115,63 @@ Example:
     thf(knows, definition, archer_box = ^ [X: $o ({$knows:#archer}(X))).
 </PRE>
 ... to say "archer knows X".
+-->
 
-<H3>Short Form</H3>
+<P>
+<HR><!------------------------------------------------------------------------>
+<H2>Connectives Short Form</H2>
 
 The short forms provide shorthand for the long forms. 
 four short forms are available <TT>[...]</TT>, <TT>&lt;...&gt;</TT>, 
-<TT>{...}</TT>, and
-<TT>(...)</TT>. 
+<TT>{...}</TT>, and <TT>(...)</TT>. 
 The short forms are associated by TPTP standards with specific long forms in 
 specific logics, e.g., in modal logic <TT>[...]</TT> is short for 
 <TT>{$necessary:...}</TT> and <TT>&lt;...&gt;</TT> is short for 
 <TT>{$possible:...}</TT>. 
-A non-indexed short form have a period in the brackets.
+There might not be a short form for every long form in a given logic. 
 The short forms may be parameterized by an index, but nothing more.
+A non-indexed short form has a period in the brackets.
 Examples:
 <PRE>
-    [.](arg1,arg2,...)
-    <.> @ arg1 @ arg2 @ ...
-    {.}(arg1,arg2,...)
-    (.) @ arg1 @ arg2 @ ...
-    [#1](arg1,arg2,...)
-    <#agent> @ arg1 @ arg2 @ ...
-    {#1}(arg1,arg2,...)
-    (#agent) @ arg1 @ arg2 @ ...
+    tff(no_flying_pigs,axiom,
+        ~ <.>(pigs_might_fly) ).
+
+    tff(for_me_it_is_possible,axiom,
+        <#me>(pigs_might_fly) ).
+
+    thf(forbidden_flying_pigs,axiom,
+        (.) @ pigs_might_fly ).
+
+    thf(archer_knows_flying_pigs,axiom,
+        [#archer] @ pigs_might_fly ).
 </PRE>
 
-Examples: <A HREF="WiseMenTHFShort.p">Wise men puzzle</A>,
-          <A HREF="BunglingChemistTFFShort.p">Bungling Chemists</A>
-<P>
-There might not be a short form for every long form in a given logic. 
 Short forms and long forms can be used together, e.g., it’s OK to use 
 <TT>{$necessarily}</TT> and <TT>[.]</TT> in the same problem or formula.
-<P>
 Short forms may not be used when multiple logics are used together - the 
 long forms have to be used, to avoid conflicting uses of the short forms.
-
-<P>
-<A NAME="Alethic">
-<HR><!------------------------------------------------------------------------>
-<H2> Alethic Modal Logic (as an example) </H2>
-
-The TPTP will define the following connectives:
-<UL>
-<LI> <TT>{$necessary}</TT>, with short form <TT>[.]</TT>
-<LI> <TT>{$possible}</TT>, with short form <TT>&lt;.&gt;</TT>
-</UL>
-
-Some example uses in TFX:
-<PRE>
-    tff(pigs_might_fly_type,type,(
-        pigs_might_fly: $o )).
-
-    tff(no_flying_pigs,axiom,(
-        ~ ( {$possible}(pigs_might_fly) ) )).
-
-    tff(short_no_flying_pigs,axiom,(
-        ~ ( <.>(pigs_might_fly) ) )).
-
-    tff(an_individual_type,type,(
-        me: $i )).
-
-    tff(for_me_it_is_possible,axiom,(
-        {$possible:#me}(pigs_might_fly) )).
-
-    tff(short_for_me_it_is_possible,axiom,(
-        <#me>(pigs_might_fly) )).
-
-    tff(for_me_somthing_is_possible,axiom,(
-        ? [P: $o] : {$possible:#me}(P) )).
-
-    tff(short_for_me_somthing_is_possible,axiom,(
-        ? [P: $o] : <#me>(P) )).
-
-    tff(some_individual_says_flying_pigs,axiom,(
-        ? [X: $i] : {$possible:#X}(pigs_might_fly) )).
-
-    tff(short_some_individual_says_flying_pigs,axiom,(
-        ? [X: $i] : <#X>(pigs_might_fly) )).
-
-    tff(agent_type,type,(
-        agent: $tType )).
-
-    tff(archer_agent,type,(
-        archer: agent )).
-
-    tff(archer_says_no_flying_pigs,axiom,(
-        ~ ( {$possible:#archer}(pigs_might_fly) ) )).
-
-    tff(short_archer_says_no_flying_pigs,axiom,(
-        ~ ( <#archer>(pigs_might_fly) ) )).
-
-    tff(all_agents_say_flying_pigs,axiom,(
-        ! [A: agent] : {$necessary:#A}(pigs_might_fly) )).
-
-    tff(short_all_agents_say_flying_pigs,axiom,(
-        ! [A: agent] : [#A](pigs_might_fly) )).
-
-    tff(all_agents_say_everything,axiom,(
-        ! [A: agent,P: $o] : {$necessary:#A}(P) )).
-
-    tff(short_all_agents_say_everything,axiom,(
-        ! [A: agent,P: $o] : [#A](P) )).
-
-%----Are there modal examples with parameters?
-</PRE>
-<P>
-The example uses in THF:
-<PRE>
-    thf(pigs_might_fly_type,type,(
-        pigs_might_fly: $o )).
-
-    thf(no_flying_pigs,axiom,(
-        ~ ( {$possible} @ pigs_might_fly ) )).
-
-    thf(short_no_flying_pigs,axiom,(
-        ~ ( <.> @ pigs_might_fly ) )).
-
-    thf(an_individual_type,type,(
-        me: $i )).
-
-    thf(for_me_it_is_possible,axiom,(
-        {$possible:#me} @ pigs_might_fly )).
-
-    thf(short_for_me_it_is_possible,axiom,(
-        <#me> @ pigs_might_fly )).
-
-    thf(for_me_somthing_is_possible,axiom,(
-        ? [P: $o] : {$possible:#me} @ P )).
-
-    thf(short_for_me_somthing_is_possible,axiom,(
-        ? [P: $o] : <#me> @ P )).
-
-    thf(some_individual_says_flying_pigs,axiom,(
-        ? [X: $i] : {$possible:#X} @ pigs_might_fly )).
-
-    thf(short_some_individual_says_flying_pigs,axiom,(
-        ? [X: $i] : <#X> @ pigs_might_fly )).
-
-    thf(agent_type,type,(
-        agent: $tType )).
-
-    thf(archer_says_no_flying_pigs,axiom,(
-        ~ ( {$possible:#archer} @ pigs_might_fly ) )).
-
-    thf(short_archer_says_no_flying_pigs,axiom,(
-        ~ ( <#archer> @ pigs_might_fly ) )).
-
-    thf(all_agents_say_flying_pigs,axiom,(
-        ! [A: agent] : {$necessary:#A} @ pigs_might_fly )).
-
-    thf(short_all_agents_say_flying_pigs,axiom,(
-        ! [A: agent] : [#A] @ pigs_might_fly )).
-
-    thf(all_agents_say_everything,axiom,(
-        ! [A: agent,P: $o] : {$necessary:#A} @ P )).
-
-    thf(short_all_agents_say_everything,axiom,(
-        ! [A: agent,P: $o] : [#A] @ P )).
-</PRE>
 <P>
 <HR><!------------------------------------------------------------------------>
-<H2> Format for Semantics Specification </H2>
+<H2> Semantics Specification </H2>
 
 Annotated formulae with the (new) role <TT>logic</TT> are used to specify 
 the semantics of the modal logic.
-Such a formula begins with the keyword for the logic, which in this case is
-<TT>$modal</TT>, followed by <TT>==</TT> and a list of properties value
-assignments. 
-Properties may be specified for <TT>$constants</TT>, <TT>$quantification</TT>, 
-<TT>$consequence</TT>, and <TT>$modalities</TT>.
-Each specification is the property name, followed by <TT>:=</TT> and either
-a value (see below for possible values) or a list of specification details.
+Such a formula begins with the keyword for the logic, e.g.,
+<TT>$modal</TT>, <TT>$alethic_modal</TT>, <TT>$deontic_modal</TT>,
+<TT>$epistemic_modal</TT>, followed by <TT>==</TT> and a list of properties 
+value assignments. 
+For modal logics the properties that may be specified are for 
+<TT>$constants</TT>, <TT>$quantification</TT>, <TT>$consequence</TT>, and 
+<TT>$modalities</TT>.
+Each specification is the property name, followed by <TT>==</TT> and either
+a value (see below for possible values) or a tuple of specification details.
 If the first element of a list of details is a value, that is the default
 value for all cases that are not specified in the rest of the list. 
 Each detail after the optional default value is the name of a relevant part 
 of the vocabulary used for the problem (e.g., the name of a type, a symbol, 
 an axiom, etc.) and followed by <TT>==</TT> and a specification for that
 named part.
-There may be more than one annotated formula providing the logic
-specification, but no item's properties may be specified more than once.
-As with the TPTP type system, all symbols must be defined before their
+With the exception of axiom names, all symbols must be defined before their
 semantic properties are specified.
 <P>
 The semantic properties and their possible values are:
@@ -309,63 +202,70 @@ The semantic properties and their possible values are:
 <LI> <TT>$modalities</TT> - These are specified in this
      <A HREF="https://en.wikipedia.org/wiki/Kripke_semantics#Common_modal_axiom_schemata">
      Wikipedia page</A>.
-     A known system name may be given, including ...
      <UL>
-     <LI> <TT>$modal_system_K</TT> - 
-     <LI> <TT>$modal_system_T</TT> - 
-     <LI> <TT>$modal_system_K4</TT> - 
-     <LI> <TT>$modal_system_KB</TT> - 
-     <LI> <TT>$modal_system_K5</TT> - 
-     <LI> <TT>$modal_system_KB5</TT> - 
-     <LI> <TT>$modal_system_K45</TT> - 
-     <LI> <TT>$modal_system_S4</TT> - 
-     <LI> <TT>$modal_system_S5</TT> - 
-     <LI> <TT>$modal_system_S4_3</TT> - 
-     <LI> <TT>$modal_system_S4_1</TT> - 
-     <LI> <TT>$modal_system_S4_2</TT> - 
-     <LI> <TT>$modal_system_GL</TT> - 
-     <LI> <TT>$modal_system_K4W</TT> - 
-     <LI> <TT>$modal_system_Grz</TT> - 
-     <LI> <TT>$modal_system_S4Grz</TT> - 
-     <LI> <TT>$modal_system_D</TT> - 
-     <LI> <TT>$modal_system_B</TT> - 
-     <LI> <TT>$modal_system_DB</TT> - 
-     <LI> <TT>$modal_system_D4</TT> - 
-     <LI> <TT>$modal_system_D5</TT> - 
-     <LI> <TT>$modal_system_D45</TT> - 
+     <LI> A known system name may be given, is listed in
+          <A HREF="Logics/LOG001_2.l"><TT>Logics/LOG001_2.l</TT></A>.
+     <LI> A tuple of known axiom names may be given, as listed in
+          <A HREF="Logics/LOG001_1.l"><TT>Logics/LOG001_1.l</TT></A>.
      </UL>
-     ... or a tuple of axioms may be given, including ...
-     <UL>
-     <LI> <TT>$modal_axiom_K</TT> - 
-     <LI> <TT>$modal_axiom_T</TT> - 
-     <LI> <TT>$modal_axiom_4</TT> - 
-     <LI> <TT>$modal_axiom_box_box__box</TT> - 
-     <LI> <TT>$modal_axiom_D</TT> - 
-     <LI> <TT>$modal_axiom_B</TT> - 
-     <LI> <TT>$modal_axiom_5</TT> - 
-     <LI> <TT>$modal_axiom_GL</TT> - 
-     <LI> <TT>$modal_axiom_Grz</TT> - 
-     <LI> <TT>$modal_axiom_H</TT> - 
-     <LI> <TT>$modal_axiom_G</TT> - 
-     </UL>
-     .. or axioms may be written out in THF, ... or frame conditions may
-     be given using <TT>$R</TT> as the accessibility relation.
 </UL>
 <P>
+See 
+<A HREF="Exemplars/LogicSpecifications.p"><TT>LogicSpecifications.p</TT></A> 
+for examples.
 The BNF grammar is 
-<A HREF="http://www.tptp.org/TPTP/NonClassicalLogic/SyntaxBNF.html#logic_defn_rule">
-here</A>.
+<A HREF="SyntaxBNF.html#logic_defn_rule">here</A>.
 The grammar is not very restrictive on purpose, to enable working with other 
 logics as well.
 It is possible to create a lot of nonsense specifications, and to say the
 same thing in different meaningful ways.
 The TPTP will provide some standard logic definitions, and some examples of 
 possible use are provided below.
-We are considering implementing a tool to check the sanity of a specification.
-The list of keywords is not final.
-<H3> See <TT>LogicSpecifications.p</TT> for Examples </H3>
+A tool to check the sanity of a specification is available.
 <P>
 <HR><!------------------------------------------------------------------------>
+<H2> Examples </H2>
+
+<UL>
+<LI> <A HREF="Exemplars/PUZ087~1.p">Wise men puzzle, TFF, epistemic modal
+     logic, long connectives, indices and constants overlap</A>
+<LI> <A HREF="Exemplars/PUZ087~2.p">Wise men puzzle, TFF, epistemic modal
+     logic, long connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ087~3.p">Wise men puzzle, TFF, generic modal
+     logic, short connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ087%231.p">Wise men puzzle, THF, epistemic modal
+     logic, long connectives, indices and constants overlap</A>
+<LI> <A HREF="Exemplars/PUZ087%232.p">Wise men puzzle, THF, epistemic modal
+     logic, long connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ087%233.p">Wise men puzzle, THF, generic modal
+     logic, short connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ999~1.p">Bungling chemists, TFF, alethic modal
+     logic, short connectives</A>
+<LI> <A HREF="Exemplars/PUZ999%231.p">Bungling chemists, THF, alethic modal
+     logic, long connectives</A>
+<LI> <A HREF="Exemplars/LCL870%231.p">Barcan formula, TFF, generic modal
+     logic, short connectives</A>
+<LI> <A HREF="Exemplars/LCL871%231.p">Converse Barcan formula, TFF, generic 
+     modal logic, short connectives</A>
+</UL>
+<HR><!------------------------------------------------------------------------>
+<H2> Exotic Future </H2>
+
+The use of the TPTP framework for non-classical logics, as presented so far, 
+is conservative, adopting only widely accepted structures in normal modal 
+logics.
+The TPTP framework is capable of much more.
+Some of our ideas are listed here, some relevant and unpolished files are
+in the 
+<A HREF="https://github.com/TPTPWorld/NonClassicalLogicWebPages/tree/master/ExoticFuture">ExoticFuture</A> directory, and feedback is welcome.
+<UL>
+<LI> Using object logic terms as indices.
+<LI> In logic specifications that <TT>$modalities</TT> may be written as
+     THF formulae, or as frame conditions using <TT>$R</TT> as the 
+     accessibility relation.
+<LI> More and more
+</UL>
+
 <P>
 <HR><!------------------------------------------------------------------------>
 </BODY>

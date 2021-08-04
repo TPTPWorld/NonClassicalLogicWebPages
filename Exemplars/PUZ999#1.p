@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : PUZ999~1 : TPTP v8.0.0. Released v8.0.0.
+% File     : PUZ999#1 : TPTP v9.0.0. Released v9.0.0.
 % Domain   : Puzzles
 % Problem  : The Bungling Chemist
 % Version  : Especial.
@@ -10,18 +10,18 @@
 %            and pouring a and b in the beaker results acid
 
 % Refs     : [Bal98] Baldoni (1998), Normal Multimodal Logics: Automatic De
-% Source   : 
+% Source   : [TPTP]
 % Names    : 
 
 % Status   : Theorem
-% Rating   : ? v8.0.0
+% Rating   : ? v9.0.0
 % Syntax   : TBA
-% SPC      : TFN_THM_NEQ
+% SPC      : THN_THM_NEQ
 
-% Comments : THF, long connectives
+% Comments : Long connectives
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
-    $modal ==
+    $alethic_modal ==
         [ $constants == $rigid,
           $quantification == $cumulative,
           $consequence == $local,

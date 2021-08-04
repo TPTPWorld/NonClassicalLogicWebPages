@@ -6,11 +6,11 @@
 % English  : This provides the common axioms and inference rules of modal
 %            logics in THF.
 
-% Refs     : 
-% Source   : 
+% Refs     : [BBW06] Blackburn  et al. (2006), Handbook of Modal Logic
+% Source   : [TPTP]
 % Names    : 
 
-% Syntax   : Number of formulae    :   14 (   6 unit)
+% Syntax   : TBA
 
 % Comments : 
 %------------------------------------------------------------------------------

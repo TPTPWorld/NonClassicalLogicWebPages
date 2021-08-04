@@ -1,31 +1,26 @@
 %------------------------------------------------------------------------------
 % File     : LOG003_1 : TPTP v9.0.0. Released v9.0.0.
-% Domain   : Generic modal logics
-% Name     : Generic modal logic definitions
+% Domain   : Epistemic modal logics
+% Name     : Epistemic modal logic definitions
 % Version  : Especial.
 % English  : 
 
-% Refs     : [BBW06] Blackburn  et al. (2006), Handbook of Modal Logic
+% Refs     : [vDH15] van Ditmarsch et al. (2015), Handbook of Epistemic Log
 % Source   : [TPTP]
 % Names    : 
 
-% Syntax   : TBA
+% Syntax   : 
 
 % Comments : See Logics/LOG001_2.l for details of the modal logic systems
 %------------------------------------------------------------------------------
 %----Include common definitions
 include('Logics/LOG001_1.l').
 %------------------------------------------------------------------------------
-tff(name,logic,$modal).
+tff(name,logic,$epistemic_modal).
 
-tff(box_type,type,'{$box}' : $o > $o ).
+tff(knows_type,type,'{$knows}' : $o > $o ).
 
-tff(dia_type,type,'{$dia}' : $o > $o ).
-
-tff(box_shortform,definition,
-    '{$box}' == '[.]' ).
-
-tff(dia_shortform,definition,
-    '{$dia}' == '<.>' ).
+tff(knows_shortform,definition,
+    '{$knows}' == '[.]' ).
 
 %------------------------------------------------------------------------------
