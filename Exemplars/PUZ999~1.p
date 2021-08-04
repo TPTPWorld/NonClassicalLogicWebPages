@@ -21,7 +21,7 @@
 % Comments : Short connectives
 %------------------------------------------------------------------------------
 tff(simple_s5,logic,(
-    $modal ==
+    $alethic_modal ==
         [ $constants == $rigid,
           $quantification == $cumulative,
           $consequence == $local,

@@ -14,8 +14,9 @@
 
 % Refs     : [Gol92] Goldblatt (1992), Logics of Time and Computation
 %          : [Bal98] Baldoni (1998), Normal Multimodal Logics: Automatic De
-% Source   : [TPTP]
-% Names    : 
+%          : [Ste21] Steen (2021), Email to Geoff Sutcliffe
+% Source   : [Ste21]
+% Names    : ex5_multimodal_wiseman.p [Ste21]
 
 % Status   : Theorem
 % Rating   : ? v8.0.0
