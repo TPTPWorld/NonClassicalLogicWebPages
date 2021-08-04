@@ -18,7 +18,7 @@
 % Syntax   : TBA
 % SPC      : TFN_THM_NEQ
 
-% Comments : short connectives
+% Comments : Short connectives
 %------------------------------------------------------------------------------
 tff(simple_s5,logic,(
     $modal ==
