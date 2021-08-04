@@ -22,6 +22,10 @@ tff(diamond,definition,
     ( <.>(P)
    == ~ [.](~ P) ) ).
 
+tff(circle,definition,
+    ( (.)(P)
+   == [.](~ P) ) ).
+
 % tff(propositional_tautologies,definition,P that are classical tautologies).
 
 tff(modus_ponens,definition,
@@ -86,4 +90,8 @@ tff(modal_axiom_C,definition,
    == ( <.>([.](A))
      => [.](<.>(A)) ) ) ).
       
+tff(deontic_axiom_NC,definition,
+    ( $deontic_axiom_NC
+   == ( (.)(P)
+     => ~ (.)(~ P) ) ).
 %------------------------------------------------------------------------------
