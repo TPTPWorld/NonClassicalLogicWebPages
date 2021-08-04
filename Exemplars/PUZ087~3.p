@@ -51,7 +51,7 @@ tff(at_least_one_white_spot,axiom,(
     [#index_fool](
       ( white_spot(a)
       | white_spot(b)
-      | white_spot(c) ) )).
+      | white_spot(c) ) ) )).
 
 %----If one agent has a white spot all other agents can see this
 tff(b_knows_a,axiom,(
