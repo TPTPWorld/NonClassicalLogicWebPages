@@ -20,12 +20,12 @@ tff(name,logic,$alethic_modal).
 
 tff(necessary_type,type,'{$necessary}' : $o > $o ).
 
-tff(possibly_type,type,'{$possibly}' : $o > $o ).
+tff(possible_type,type,'{$possible}' : $o > $o ).
 
 tff(necessary_shortform,definition,
     '{$necessary}' == '[.]' ).
 
-tff(possibly_shortform,definition,
-    '{$possibly}' == '<.>' ).
+tff(possible_shortform,definition,
+    '{$possible}' == '<.>' ).
 
 %------------------------------------------------------------------------------

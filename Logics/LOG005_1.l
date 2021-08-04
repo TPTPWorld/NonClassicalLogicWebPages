@@ -20,12 +20,7 @@ tff(name,logic,$epistemic_modal).
 
 tff(knows_type,type,'{$knows}' : $o > $o ).
 
-tff(believes_type,type,'{$believes}' : $o > $o ).
-
 tff(knows_shortform,definition,
     '{$knows}' == '[.]' ).
-
-tff(believes_shortform,definition,
-    '{$believes}' == '<.>' ).
 
 %------------------------------------------------------------------------------

@@ -20,17 +20,12 @@ tff(name,logic,$deontic_modal).
 
 tff(obligatory_type,type,'{$obligatory}' : $o > $o ).
 
-tff(permitted_type,type,'{$permitted}' : $o > $o ).
-
-tff(forbidden_type,type,'{$forbidden}' : $o > $o ).
+tff(permissible_type,type,'{$permissible}' : $o > $o ).
 
 tff(obligatory_shortform,definition,
     '{$obligatory}' == '[.]' ).
 
-tff(permitted_shortform,definition,
-    '{$permitted}' == '<.>' ).
-
-tff(forbidden_shortform,definition,
-    '{$forbidden}' == '(.)' ).
+tff(permissible_shortform,definition,
+    '{$permissible}' == '<.>' ).
 
 %------------------------------------------------------------------------------

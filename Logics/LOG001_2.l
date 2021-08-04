@@ -44,8 +44,4 @@ tff(modal_system_S5,definition,
    == ( $modal_system_S4
       & $modal_axiom_5 ) ) ).
 
-tff(deontic_system_SDL,definition,
-    ( $deontic_system_SDL
-   == ( $modal_system_K
-      & $deontic_axiom_NC ) ) ).
 %------------------------------------------------------------------------------
