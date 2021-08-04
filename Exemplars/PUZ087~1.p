@@ -28,7 +28,7 @@ tff(simple_s5,logic,(
     $modal ==
         [ $constants == $rigid,
           $quantification == $varying,
-          $consequence == $local,
+          $consequence == $global,
           $modalities == $modal_system_S5 ] )).
 
 %----Type for the wise men
