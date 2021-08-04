@@ -208,9 +208,6 @@ The semantic properties and their possible values are:
           <A HREF="Logics/LOG001_2.l"><TT>Logics/LOG001_2.l</TT></A>.
      <LI> A tuple of known axiom names may be given, as listed in
           <A HREF="Logics/LOG001_1.l"><TT>Logics/LOG001_1.l</TT></A>.
-     <LI> In the future or axioms may be written out in THF, or frame 
-          conditions may be given using <TT>$R</TT> as the accessibility 
-          relation.
      </UL>
 </UL>
 <P>
@@ -231,11 +228,41 @@ A tool to check the sanity of a specification is available.
 <H2> Examples </H2>
 
 <UL>
-<LI> <A HREF="Exemplars/PUZ087~1.p">Wise men puzzle, TFF, Long connectives</A>
-<LI> <A HREF="Exemplars/PUZ087%232.p">Wise men puzzle, THF, Short connectives</A>,
-<LI> <A HREF="Exemplars/PUZ999~1.p">Bungling chemists, TFF, Short connectives</A>
-<LI> <A HREF="Exemplars/PUZ999%232.p">Bungling chemists, THF, Long connectives</A>
+<LI> <A HREF="Exemplars/PUZ087~1.p">Wise men puzzle, TFF, epistemic modal
+     logic, long connectives, indices and constants overlap</A>
+<LI> <A HREF="Exemplars/PUZ087~2.p">Wise men puzzle, TFF, epistemic modal
+     logic, long connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ087~3.p">Wise men puzzle, TFF, generic modal
+     logic, short connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ087%231.p">Wise men puzzle, THF, epistemic modal
+     logic, long connectives, indices and constants overlap</A>
+<LI> <A HREF="Exemplars/PUZ087%232.p">Wise men puzzle, THF, epistemic modal
+     logic, long connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ087%233.p">Wise men puzzle, THF, generic modal
+     logic, short connectives, indices and constants distinct</A>
+<LI> <A HREF="Exemplars/PUZ999~1.p">Bungling chemists, TFF, alethic modal
+     logic, short connectives</A>
+<LI> <A HREF="Exemplars/PUZ999%232.p">Bungling chemists, THF, alethic modal
+     logic, long connectives</A>
 </UL>
+<HR><!------------------------------------------------------------------------>
+<H2> Exotic Future </H2>
+
+The use of the TPTP framework for non-classical logics, as presented so far, 
+is conservative, adopting only widely accepted structures in normal modal 
+logics.
+The TPTP framework is capable of much more.
+Some of our ideas are listed here, some relevant and unpolished files are
+in the 
+<A HREF="https://github.com/TPTPWorld/NonClassicalLogicWebPages/tree/master/ExoticFuture">ExoticFuture</A> directory, and feedback is welcome.
+<UL>
+<LI> Using object logic terms as indices.
+<LI> In logic specifications that <TT>$modalities</TT> may be written as
+     THF formulae, or as frame conditions using <TT>$R</TT> as the 
+     accessibility relation.
+<LI> More and more
+</UL>
+
 <P>
 <HR><!------------------------------------------------------------------------>
 </BODY>
