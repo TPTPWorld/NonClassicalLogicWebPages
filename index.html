@@ -168,9 +168,11 @@ a value (see below for possible values) or a tuple of specification details.
 If the first element of a list of details is a value, that is the default
 value for all cases that are not specified in the rest of the list. 
 Each detail after the optional default value is the name of a relevant part 
-of the vocabulary used for the problem (e.g., the name of a type, a symbol, 
-an axiom, etc.) and followed by <TT>==</TT> and a specification for that
-named part.
+of the vocabulary of the problem, followed by <TT>==</TT> and a value
+for that named part.
+For modal logics the <TT>$constants</TT>, <TT>$quantification</TT>, and 
+<TT>$modalities</TT> may have individual values for constants and types, 
+and the <TT>$consequence</TT> may have individual values for named axioms.
 With the exception of axiom names, all symbols must be defined before their
 semantic properties are specified.
 <P>

@@ -22,22 +22,6 @@ thf(simple_s5_v3,logic,(
             $modal_axiom_5 ] ] )).
 
 
-%----MODALITY OPTIONS
-% Example problem with at least two different modalities: TODO
-
-%----Special semantics for modalities with index a and b (here: systems KB and 
-%----K); one default value for all other modalities (here: system S5)
-thf(exotic,logic,(
-    $modal ==
-      [ $constants == $flexible,
-        $quantification == $cumulative,
-        $consequence == $local,
-        $modalities ==
-          [ $modal_system_S5,
-            a == $modal_system_KB,
-            b == $modal_system_K ] ] )).
-
-
 %----CONSTANTS OPTIONS
 % Example problem with at least one flexible constant: TODO
 % Example problem with at least one flexible and rigid constant: TODO
@@ -104,3 +88,18 @@ thf(different_consequence,logic,(
             ax1 == $local ],
         $modalities == $modal_system_S5 ] )).
 
+
+%----MODALITY OPTIONS
+% Example problem with at least two different modalities: TODO
+
+%----Special semantics for modalities with index a and b (here: systems KB and 
+%----K); one default value for all other modalities (here: system S5)
+thf(exotic,logic,(
+    $modal ==
+      [ $constants == $flexible,
+        $quantification == $cumulative,
+        $consequence == $local,
+        $modalities ==
+          [ $modal_system_S5,
+            a == $modal_system_KB,
+            b == $modal_system_K ] ] )).
