@@ -32,4 +32,10 @@ thf(converse_barcan_formula,conjecture,
           ! [X: $i] : ( f @ X ) )
    => ( ! [X: $i] : ( [.] @ (f @ X) ) ) ) ).
 
+%----Using long connectives it is ...
+% thf(converse_barcan_formula,conjecture,
+%     ( ( {$box} @ 
+%           ! [X: $i] : ( f @ X ) )
+%    => ( ! [X: $i] : ( {$box} @ (f @ X) ) ) ) ).
+
 %------------------------------------------------------------------------------

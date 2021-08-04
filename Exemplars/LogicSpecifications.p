@@ -25,8 +25,8 @@ thf(simple_s5_v3,logic,(
 %----MODALITY OPTIONS
 % Example problem with at least two different modalities: TODO
 
-%----Special semantics for modalities with index a and b (here: systems KB and K);
-%----one default value for all other modalities (here: system S5)
+%----Special semantics for modalities with index a and b (here: systems KB and 
+%----K); one default value for all other modalities (here: system S5)
 thf(exotic,logic,(
     $modal ==
       [ $constants == $flexible,
@@ -62,8 +62,8 @@ thf(constants,logic,(
 
 %----QUANTIFICATION OPTIONS
 % Example problem with at least one constant domain: TODO
-% Example problem with at least one cumulative domain: BunglingChemistTHFLong.p
-% Example problem with at least one varying domain: WiseMenTHFShort.p
+% Example problem with at least one cumulative domain: PUZ149*.p
+% Example problem with at least one varying domain: PUZ087*.p
 % Example problem with at least two different types of domains: TODO
 
 %----Quantification may be different for any base type or compound type e.g.
@@ -89,8 +89,8 @@ thf(quantification,logic,(
 % Example problem with local conjecture: TODO
 % Example problem with global conjecture: TODO
 
-%----Consequence. All axioms and the conjecture have the same consequence except for ax1 which has a
-%----special consequence
+%----Consequence. All axioms and the conjecture have the same consequence 
+%----except for ax1 which has a special consequence
 thf(ax1,axiom,(
     $true )).
 
