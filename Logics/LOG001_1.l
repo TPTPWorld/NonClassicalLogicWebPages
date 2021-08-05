@@ -35,10 +35,20 @@ tff(modal_necessitation,definition,
     --> [[.](P)] ) ) ).
 
 tff(modal_axiom_K,definition,
-    ( $modal_distribution
+    ( $modal_axiom_K
    == ( [.](A => B)
      => ( [.](A)
        => [.](B) ) ) ) ).
+
+tff(modal_axiom_T,definition,
+    ( $modal_axiom_T
+   == ( [.](A)
+     => A ) ) ).
+
+tff(modal_axiom_B,definition,
+    ( $modal_axiom_B
+   == ( A
+     => [.](<.>(A)) ) ) ).
 
 tff(modal_axiom_D,definition,
     ( $modal_axiom_D
@@ -54,11 +64,6 @@ tff(modal_axiom_4,definition,
     ( $modal_axiom_4
    == ( [.](A)
      => [.]([.](A)) ) ) ).
-
-tff(modal_axiom_B,definition,
-    ( $modal_axiom_B
-   == ( A
-     => [.](<.>(A)) ) ) ).
 
 tff(modal_axiom_5,definition,
     ( $modal_axiom_5 

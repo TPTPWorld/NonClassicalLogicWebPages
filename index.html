@@ -42,6 +42,12 @@ non-classical logics with
 <LI> A seperate specification of the semantics.
 </UL>
 
+<EM><STRONG>
+The descriptions and examples below are in terms of normal modal logic.
+The syntax offers much more - see the section on the
+<A HREF="#ExoticFuture">exotic future</A> below.
+</STRONG></EM>
+
 <P>
 <HR><!------------------------------------------------------------------------>
 <H2>Connectives Long Form</H2>
@@ -64,7 +70,7 @@ Examples:
         {$forbidden} @ pigs_might_fly ).
 
     thf(everything_is_permissible,axiom,
-        ! [P: $o] : {$permissible} @ P ).
+        ! [P: $o] : ( {$permissible} @ P ) ).
 </PRE>
 
 Connectives may have a list of parameters, where a parameter is one of:
@@ -93,23 +99,24 @@ Connectives may have a list of parameters, where a parameter is one of:
         {$knows:#archer} @ pigs_might_fly ).
 
     thf(for_archer_everything_is_permissible,axiom,
-        ! [P: $o] : {$permissible:#archer} @ P ).
+        ! [P: $o] : ( {$permissible:#archer} @ P ) ).
 </PRE>
 <P>
 <LI> A key-value expression of form <EM>LHS</EM><TT> := </TT><EM>RHS</EM> 
      where <EM>LHS</EM> is a TPTP defined constant, and <EM>RHS</EM> is a term
      (for TFF a <TT>tff_atomic_formula</TT>, for THF  a 
      <TT>thf_fof_function</TT>). 
-     Examples:
+     This is not used in normal modal logics, but in other logics, e.g.,
+     epistemic logic ...
      <PRE>
-    {$knows:#1}({$common: $group := [#2,#3,#4]}(something_commonly_known_by_agents_2_3_and_4))
-    {$necessary:$term := f(c)}(some_property)
+    {$knows:#1}({$common: $group := [2,3,4]}(something_commonly_known_by_agents_2_3_and_4))
      </PRE>
 </UL>
 
 <!--
 Users may define common abbreviations for connectives, e.g., <TT>box</TT>
 for <TT>$necessary</TT> in modal logic, in statements with definition roles.
+This is not used
 Example:
 <PRE>
     thf(knows, definition, archer_box = ^ [X: $o ({$knows:#archer}(X))).
@@ -122,10 +129,10 @@ Example:
 <H2>Connectives Short Form</H2>
 
 The short forms provide shorthand for the long forms. 
-four short forms are available <TT>[...]</TT>, <TT>&lt;...&gt;</TT>, 
-<TT>{...}</TT>, and <TT>(...)</TT>. 
+Two short forms are available in normal modal logics:
+<TT>[...]</TT>, <TT>&lt;...&gt;</TT>.
 The short forms are associated by TPTP standards with specific long forms in 
-specific logics, e.g., in modal logic <TT>[...]</TT> is short for 
+specific logics, e.g., in alethic modal logic <TT>[...]</TT> is short for 
 <TT>{$necessary:...}</TT> and <TT>&lt;...&gt;</TT> is short for 
 <TT>{$possible:...}</TT>. 
 There might not be a short form for every long form in a given logic. 
@@ -140,16 +147,14 @@ Examples:
         <#me>(pigs_might_fly) ).
 
     thf(forbidden_flying_pigs,axiom,
-        (.) @ pigs_might_fly ).
+        <.> @ pigs_might_fly ).
 
     thf(archer_knows_flying_pigs,axiom,
         [#archer] @ pigs_might_fly ).
 </PRE>
 
 Short forms and long forms can be used together, e.g., it’s OK to use 
-<TT>{$necessarily}</TT> and <TT>[.]</TT> in the same problem or formula.
-Short forms may not be used when multiple logics are used together - the 
-long forms have to be used, to avoid conflicting uses of the short forms.
+<TT>{$necessary}</TT> and <TT>[.]</TT> in the same problem or formula.
 <P>
 <HR><!------------------------------------------------------------------------>
 <H2> Semantics Specification </H2>
@@ -160,7 +165,7 @@ Such a formula begins with the keyword for the logic, e.g.,
 <TT>$modal</TT>, <TT>$alethic_modal</TT>, <TT>$deontic_modal</TT>,
 <TT>$epistemic_modal</TT>, followed by <TT>==</TT> and a list of properties 
 value assignments. 
-For modal logics the properties that may be specified are for 
+For normal modal logics the properties that may be specified are for 
 <TT>$constants</TT>, <TT>$quantification</TT>, <TT>$consequence</TT>, and 
 <TT>$modalities</TT>.
 Each specification is the property name, followed by <TT>==</TT> and either
@@ -170,11 +175,9 @@ value for all cases that are not specified in the rest of the list.
 Each detail after the optional default value is the name of a relevant part 
 of the vocabulary of the problem, followed by <TT>==</TT> and a value
 for that named part.
-For modal logics the <TT>$constants</TT>, <TT>$quantification</TT>, and 
+For normal modal logics the <TT>$constants</TT>, <TT>$quantification</TT>, and 
 <TT>$modalities</TT> may have individual values for constants and types, 
 and the <TT>$consequence</TT> may have individual values for named axioms.
-With the exception of axiom names, all symbols must be defined before their
-semantic properties are specified.
 <P>
 The semantic properties and their possible values are:
 <UL> 
@@ -198,14 +201,15 @@ The semantic properties and their possible values are:
      </UL>
 <LI> <TT>$consequence</TT>
      <UL>
-     <LI> <TT>$local</TT> - 
-     <LI> <TT>$global</TT> - 
+     <LI> <TT>$local</TT> - The formula is assumed to be true in the current 
+          world.
+     <LI> <TT>$global</TT> - The formula is assumed to be true in all worlds.
      </UL>
 <LI> <TT>$modalities</TT> - These are specified in this
      <A HREF="https://en.wikipedia.org/wiki/Kripke_semantics#Common_modal_axiom_schemata">
      Wikipedia page</A>.
      <UL>
-     <LI> A known system name may be given, is listed in
+     <LI> A known system name may be given, as listed in
           <A HREF="Logics/LOG001_2.l"><TT>Logics/LOG001_2.l</TT></A>.
      <LI> A tuple of known axiom names may be given, as listed in
           <A HREF="Logics/LOG001_1.l"><TT>Logics/LOG001_1.l</TT></A>.
@@ -229,9 +233,12 @@ A tool to check the sanity of a specification is available.
 <H2> Examples </H2>
 
 These examples can be run in Leo-III within 
-<A HREF="http://www.tptp.org/cgi-bin/SystemOnTPTP">SystemOnTPTP</A>; just
-cut-and-paste the formula text into the "Input Formulae" box, selevct Leo-III
-as the "System", and click "RunSelectedSystems".
+<A HREF="http://www.tptp.org/cgi-bin/SystemOnTPTP">SystemOnTPTP</A>.
+Leo-III embeds non-classical logic problems into plain THF, and solves the
+THF problem. 
+The embedding tool is available as Logic2THF in 
+<A HREF="http://www.tptp.org/cgi-bin/SystemB4TPTP">SystemB4TPTP</A>, the
+output from which can be given to any THF system.
 
 <UL>
 <LI> <A HREF="Exemplars/PUZ087~1.p">Wise men puzzle, TFF, epistemic modal
@@ -255,6 +262,7 @@ as the "System", and click "RunSelectedSystems".
 <LI> <A HREF="Exemplars/LCL871%231.p">Converse Barcan formula, TFF, generic 
      modal logic, short connectives</A>
 </UL>
+<A NAME="ExoticFuture">
 <HR><!------------------------------------------------------------------------>
 <H2> Exotic Future </H2>
 
@@ -266,10 +274,17 @@ Some of our ideas are listed here, some relevant and unpolished files are
 in the 
 <A HREF="https://github.com/TPTPWorld/NonClassicalLogicWebPages/tree/master/ExoticFuture">ExoticFuture</A> directory, and feedback is welcome.
 <UL>
-<LI> Using object logic terms as indices.
+<LI> Using object logic terms, including variables, as indices.
+<LI> Non-normal modal logics are already supported in the syntax, and tool
+     support will be added.
+<LI> Two more short forms <TT>{...}</TT>, and <TT>(...)</TT>. 
 <LI> In logic specifications that <TT>$modalities</TT> may be written as
      THF formulae, or as frame conditions using <TT>$R</TT> as the 
      accessibility relation.
+<LI> Problems with multiple logics together.
+     (Short forms may not be used when multiple logics are used together - the 
+     long forms have to be used, to avoid conflicting uses of the short forms.)
+<LI> More (non-modal) logics.
 <LI> More and more
 </UL>
 
