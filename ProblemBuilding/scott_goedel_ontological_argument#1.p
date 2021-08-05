@@ -1,5 +1,14 @@
 % Scott's version of Goedel's Ontological Proof of the Existence of God
 
+% semantics specification
+% TODO: are these semantics correct?
+thf(simple_s5,logic,(
+    $alethic_modal ==
+        [ $constants == $rigid,
+          $quantification == $constant,
+          $consequence == $local,
+          $modalities == $modal_system_S5 ] )).
+
 % positive constant
 thf( positive_type , type , ( positive: ( $i > $o ) > $o ) ).
 
