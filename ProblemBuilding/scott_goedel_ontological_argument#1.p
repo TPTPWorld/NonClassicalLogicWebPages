@@ -31,26 +31,26 @@ thf( a2 , axiom , ( ! [Phi:$i>$o,Psi:$i>$o] :  ( ( ( positive @ Phi ) & ( {$box}
 
 % T1: Positive properties are possibly exemplified.
 % ∀φ.P φ → ⋄∃x.φ x
-thf( t1 , conjecture , ( ! [Phi:$i>$o] : ( ( positive @ Phi ) => ( $dia @ ( ? [X:$i] : ( Phi @ X ) ) ) ) ) ).
+thf( t1 , conjecture , ( ! [Phi:$i>$o] : ( ( positive @ Phi ) => ( {$dia} @ ( ? [X:$i] : ( Phi @ X ) ) ) ) ) ).
 
 % D1: A God-like being possesses all positive properties.
 % G x ≡ ∀φ.P φ → φ x
 thf( d1 , definition , ( godlike = ( ^ [X:$i] : ( ! [Phi:$i>$o] : ( ( positive @ Phi ) => ( Phi @ X ) ) ) ) ) ).
 
 % A3: The property of being God-like is positive.
-P (G)
+% P (G)
 thf( a3 , axiom , ( positive @ godlike ) ).
 
 % C: Possibly, God exists.
 % ⋄ ∃x.G x
-thf ( c , conjecture , ( $dia @ ( ? [X:$i] : ( godlike @ X ) ) ) ).
+thf ( c , conjecture , ( {$dia} @ ( ? [X:$i] : ( godlike @ X ) ) ) ).
 
 % A4: Positive properties are necessary positive properties.
 % ∀φ.P φ → □ P φ
 thf( a4 , axiom , ( ! [Phi:$i>$o] : ( ( positive @ Phi ) => ( {$box} @ ( positive @ Phi ) ) ) ) ).
 
 % D2: An essence of an individual is a property possessed by it and necessarily implying any of its properties.
-ess φ x ≡ φ x ∧ ∀ψ.(ψ x → □ ∀y.(φ y → ψ y))
+% ess φ x ≡ φ x ∧ ∀ψ.(ψ x → □ ∀y.(φ y → ψ y))
 thf( d2 , definition , ( essence = ( ^ [Phi:$i>$o,X:$i] : ( ( Phi @ X ) & ( ! [Psi:$i>$o] : ( ( Psi @ X ) => ( {$box} @ ( ! [Y:$i] : ( ( Phi @ Y ) => ( Psi @ Y ) ) ) ) ) ) ) ) ) ).
 
 % T2: Being God-like is an essence of any God-like being.
