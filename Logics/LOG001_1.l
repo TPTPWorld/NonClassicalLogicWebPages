@@ -55,11 +55,6 @@ tff(modal_axiom_D,definition,
    == ( [.](A)
      => <.>(A) ) ) ).
 
-tff(modal_axiom_M,definition,
-    ( $modal_axiom_M
-   == ( [.](A)
-     => A ) ) ).
-
 tff(modal_axiom_4,definition,
     ( $modal_axiom_4
    == ( [.](A)

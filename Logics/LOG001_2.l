@@ -29,14 +29,14 @@ tff(modal_system_D,definition,
    == ( $modal_system_K
       & $modal_axiom_D ) ) ).
 
-tff(modal_system_M,definition,
-    ( $modal_system_M 
+tff(modal_system_T,definition,
+    ( $modal_system_T 
    == ( $modal_system_K
-      & $modal_axiom_M ) ) ).
+      & $modal_axiom_T ) ) ).
 
 tff(modal_system_S4,definition,
     ( $modal_system_S4 
-   == ( $modal_system_M
+   == ( $modal_system_T
       & $modal_axiom_4 ) ) ).
 
 tff(modal_system_S5,definition,

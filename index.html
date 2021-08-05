@@ -160,26 +160,31 @@ Short forms and long forms can be used together, e.g., it’s OK to use
 <H2> Semantics Specification </H2>
 
 Annotated formulae with the (new) role <TT>logic</TT> are used to specify 
-the semantics of the modal logic.
+the semantics of the logic.
 Such a formula begins with the keyword for the logic, e.g.,
 <TT>$modal</TT>, <TT>$alethic_modal</TT>, <TT>$deontic_modal</TT>,
 <TT>$epistemic_modal</TT>, followed by <TT>==</TT> and a list of properties 
 value assignments. 
-For normal modal logics the properties that may be specified are for 
-<TT>$constants</TT>, <TT>$quantification</TT>, <TT>$consequence</TT>, and 
-<TT>$modalities</TT>.
 Each specification is the property name, followed by <TT>==</TT> and either
-a value (see below for possible values) or a tuple of specification details.
+a value or a tuple of specification details.
 If the first element of a list of details is a value, that is the default
 value for all cases that are not specified in the rest of the list. 
 Each detail after the optional default value is the name of a relevant part 
 of the vocabulary of the problem, followed by <TT>==</TT> and a value
 for that named part.
-For normal modal logics the <TT>$constants</TT>, <TT>$quantification</TT>, and 
-<TT>$modalities</TT> may have individual values for constants and types, 
-and the <TT>$consequence</TT> may have individual values for named axioms.
 <P>
-The semantic properties and their possible values are:
+The semantic specification typically comes first in a problem file.
+A logic specification changes the meaning of things such as the boolean 
+type <TT>$o</TT>, universal quantification with <TT>!</TT>, etc.
+Their existing meaning in classical logic should not be confused with the
+meaning in the declared logic.
+<P>
+For normal modal logics the properties that may be specified are 
+<TT>$constants</TT>, <TT>$quantification</TT>, <TT>$consequence</TT>, and 
+<TT>$modalities</TT>.
+The <TT>$constants</TT>, <TT>$quantification</TT>, and <TT>$modalities</TT> 
+may have individual values for constants and types, and the 
+<TT>$consequence</TT> may have individual values for named axioms.
 <UL> 
 <LI> <TT>$constants</TT>
      <UL>
@@ -225,8 +230,6 @@ The grammar is not very restrictive on purpose, to enable working with other
 logics as well.
 It is possible to create a lot of nonsense specifications, and to say the
 same thing in different meaningful ways.
-The TPTP will provide some standard logic definitions, and some examples of 
-possible use are provided below.
 A tool to check the sanity of a specification is available.
 <P>
 <HR><!------------------------------------------------------------------------>
