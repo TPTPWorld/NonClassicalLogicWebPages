@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : NLP265~1 : TPTP v9.0.0. Released v9.0.0.
+% File     : KRS272~1 : TPTP v9.0.0. Released v9.0.0.
 % Domain   : Natural language processing
 % Problem  : Generation of abstract instructions
 % Version  : Especial.
@@ -9,14 +9,12 @@
 % Source   : [QMLTP]
 % Names    : APM003+1 [QMLTP]
 
-% Status   : cumulative_T : CounterSatisfiable
+% Status   : CounterSatisfiable
+%          : cumulative_T : CounterSatisfiable
 %          : cumulative_S4 : Theorem
 %          : varying_S4 : CounterSatisfiable
 %          : constant_S5 : Theorem
-% Rating   : cumulative_T : ? v9.0.0
-%          : cumulative_S4 : ? v9.0.0
-%          : varying_S4 : ? v9.0.0
-%          : constant_S5 : ? v9.0.0
+% Rating   : ? v9.0.0
 % Syntax   : TBA
 % SPC      : TFN_THM_NEQ
 
