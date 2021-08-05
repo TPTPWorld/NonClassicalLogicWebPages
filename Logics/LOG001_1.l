@@ -65,6 +65,12 @@ tff(rigid_constants,definition,
    == (I(w,c) = I(v,c)) ). 
 tff(flexible_constants,definition,$true). %- no restriction for flexible constants.
 
+%- Quantification
+tff(quantification_values,definition,
+    ( $quantification
+   == [$varying, $cumulative, $decreasing, $constant] ) ).
+% ... TBA
+
 %- Consequence
 tff(consequence_values,definition,
     ( $consequence
