@@ -1,3 +1,23 @@
+% Generalized properties of modal operators
+thf(first_order_box_properties,logic,(
+    $modal ==
+      [ $constants == $rigid,
+        $quantification == $constant,
+        $consequence == $global,
+        $modalities == ~$R(X,X) ] )). %-- X implicitly universally quantified.
+        %% There is no modal axiom scheme that corresponds to irreflexibility.
+        %% We can postulate it as property of the accessibility relation $R
+        %% (in Kripke-complete normal modal logics).
+        
+thf(unnamed_modal_axioms,logic,(
+    $modal ==
+      [ $constants == $rigid,
+        $quantification == $constant,
+        $consequence == $global,
+        $modalities == [ [ ([#1] @ P) =>  (<#2> @ P),
+                           ([#1] @ P) => ~(<#3> @ P) ] ] ] )). %-- P implicitly universally quantified.
+        %% We postulate bridge axioms between different modalities.
+
 % Index sets
 thf(quantification,logic,(
     $modal ==
