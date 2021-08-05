@@ -19,7 +19,8 @@
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
     $modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG002_1.l',
+          $constants == $rigid,
           $quantification == $cumulative,
           $consequence == $global,
           $modalities == $modal_system_K ] )).

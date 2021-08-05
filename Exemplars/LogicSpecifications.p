@@ -3,7 +3,7 @@
 % Example problem with "standard" semantics: TODO
 thf(simple_s5,logic,(
     $modal ==
-      [ $logicfile == log002_1.p,
+      [ $logicfile == 'LOG002_1.l',
         $constants == $rigid,
         $quantification == $constant,
         $consequence == $global,
@@ -35,7 +35,7 @@ thf(king_of_france_constant,type,(
 
 thf(constants,logic,(
     $modal ==
-      [ $logicfile == log002_1.p,
+      [ $logicfile == 'LOG002_1.l',
         $constants ==
           [ $constant,
             king_of_france == $flexible ],
@@ -57,7 +57,7 @@ thf(plushie_type,type,(
 
 thf(quantification,logic,(
     $modal ==
-      [ $logicfile == log002_1.p,
+      [ $logicfile == 'LOG002_1.l',
         $constants == $rigid,
         $quantification ==
           [ $constant,
@@ -80,7 +80,7 @@ thf(ax1,axiom,(
 
 thf(different_consequence,logic,(
     $modal ==
-      [ $logicfile == log002_1.p,
+      [ $logicfile == 'LOG002_1.l',
         $constants == $rigid,
         $quantification == $constant,
         $consequence ==

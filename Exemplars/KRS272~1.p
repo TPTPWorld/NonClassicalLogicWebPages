@@ -25,7 +25,8 @@
 %----included here. Or ... (see next comment) ...
 tff(cumulative_T,logic,(
     $modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG002_1.l',
+          $constants == $rigid,
           $quantification == $cumulative,
           $consequence == $global,
           $modalities == $modal_system_T ] )).
@@ -34,21 +35,24 @@ tff(cumulative_T,logic,(
 %----this problem file, with the next three put in an include file.
 tff(varying_S4,logic,(
     $modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG002_1.l',
+          $constants == $rigid,
           $quantification == $varying,
           $consequence == $global,
           $modalities == $modal_system_S4 ] )).
 
 tff(cumulative_S4,logic,(
     $modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG002_1.l',
+          $constants == $rigid,
           $quantification == $cumulative,
           $consequence == $global,
           $modalities == $modal_system_S4 ] )).
 
 tff(constant_S5,logic,(
     $modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG002_1.l',
+          $constants == $rigid,
           $quantification == $constant,
           $consequence == $global,
           $modalities == $modal_system_S5 ] )).

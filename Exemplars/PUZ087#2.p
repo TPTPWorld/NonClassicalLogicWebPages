@@ -26,7 +26,8 @@
 %------------------------------------------------------------------------------
 thf(simple_s5,logic,(
     $epistemic_modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG005_1.l',
+          $constants == $rigid,
           $quantification == $varying,
           $consequence == $global,
           $modalities == $modal_system_S5 ] )).

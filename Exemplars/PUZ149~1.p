@@ -22,9 +22,10 @@
 %------------------------------------------------------------------------------
 tff(simple_s5,logic,(
     $alethic_modal ==
-        [ $constants == $rigid,
+        [ $logicfile == 'LOG003_1.l',
+          $constants == $rigid,
           $quantification == $cumulative,
-          $consequence == $local,
+          $consequence == $global,
           $modalities == $modal_system_S5 ] )).
 
 tff(acid_type,type,acid: $o).
