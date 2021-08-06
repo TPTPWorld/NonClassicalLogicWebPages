@@ -30,22 +30,6 @@ tff(modal_axiom_Cstar,definition,
      => ( [.](A)
         & [.](B) ) ) ) ).
 
-tff(modal_axiom_C_dual,definition,
-    ( $modal_axiom_C_dual
-   == ( ( <.>(A)
-        | <.>(B) )
-     => <.>
-          ( A
-          | B ) ) ) ).
-
-tff(modal_axiom_Cstar,definition,
-    ( $modal_axiom_Cstar
-   == ( <.>
-          ( A
-          | B ) 
-     => ( <.>(A)
-        | <.>(B) ) ) ) ).
-
 tff(modal_axiom_nnM,definition,
     ( $modal_axiom_nnM
    == ( [.]
