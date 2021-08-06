@@ -30,6 +30,8 @@ tff(modus_ponens,definition,
    == ( [ P, P => Q]
     --> [Q] ) ) ).
 
+%----If P is a theorem then [.](P) is a theorem too.
+%----Here --> is global consequence.
 tff(modal_necessitation,definition,
     ( $modal_necessitation
    == ( [P]

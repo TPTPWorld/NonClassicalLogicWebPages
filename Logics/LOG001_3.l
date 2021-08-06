@@ -37,6 +37,8 @@ tff(modal_axiom_nnM,definition,
           & B )
      => [.](A) ) ) ).
 
+%----If (A => B) is a theorem then ([.](A) => [.](B)) is a theorem too.
+%----Here --> is global consequence.
 tff(modal_axiom_RM,definition,
     ( $modal_axiom_RM
    == ( [ ( A
@@ -44,6 +46,8 @@ tff(modal_axiom_RM,definition,
     --> [ ( [.](A)
          => [.](B) ) ] ) ) ).
 
+%----If (A <=> B) is a theorem then ([.](A) <=> [.](B)) is a theorem too.
+%----Here --> is global consequence.
 tff(modal_axiom_RE,definition,
     ( $modal_axiom_RE
    == ( [ ( A
