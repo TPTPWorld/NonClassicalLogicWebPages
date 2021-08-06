@@ -13,10 +13,6 @@
 
 % Comments : 
 %------------------------------------------------------------------------------
-tff(dual_diamond,definition,
-    ( [.](A)
-  <=> ~ <.>(~ A) ) ).
-
 %----Non-normal modal axiom schemes
 tff(modal_axiom_C,definition,
     ( $modal_axiom_C
