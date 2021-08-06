@@ -1,10 +1,9 @@
 %------------------------------------------------------------------------------
 % File     : LOG001_1 : TPTP v9.0.0. Released v9.0.0.
-% Domain   : Modal logics
-% Name     : Common elements for modal logics
+% Domain   : Normal modal logics
+% Name     : Common elements for normal modal logics
 % Version  : Especial.
-% English  : This provides the common axioms and inference rules of modal
-%            logics in THF.
+% English  : 
 
 % Refs     : [BBW06] Blackburn  et al. (2006), Handbook of Modal Logic
 % Source   : [TPTP]
@@ -83,7 +82,7 @@ tff(modal_necessitation,definition,
    == ( [P]
     --> [[.](P)] ) ) ).
 
-%- Modal axiom schemes
+%----Normal modal axiom schemes
 tff(modal_axiom_K,definition,
     ( $modal_axiom_K
    == ( [.](A => B)
@@ -115,25 +114,55 @@ tff(modal_axiom_5,definition,
    == ( <.>(A)
      => [.](<.>(A)) ) ) ).
 
-tff(modal_axiom_CD,definition,
-    ( $modal_axiom_CD
-   == ( <.>(A)
-     => [.](A) ) ) ).
-
 tff(modal_axiom_boxM,definition,
     ( $modal_axiom_boxM
    == [.]
         ( [.](A)
        => A ) ) ).
 
-tff(modal_axiom_C4,definition,
-    ( $modal_axiom_C4
-   == ( [.]([.](A))
-     => [.](A) ) ) ).
-
 tff(modal_axiom_C,definition,
     ( $modal_axiom_C
    == ( <.>([.](A))
      => [.](<.>(A)) ) ) ).
       
+tff(modal_axiom_C4,definition,
+    ( $modal_axiom_C4
+   == ( [.]([.](A))
+     => [.](A) ) ) ).
+
+tff(modal_axiom_CD,definition,
+    ( $modal_axiom_CD
+   == ( <.>(A)
+     => [.](A) ) ) ).
+
+tff(modal_axiom_G,definition,
+    ( $modal_axiom_G
+   == ( <.>([.](A))
+     => [.](<.>(A)) ) ) ).
+
+tff(modal_axiom_GL,definition,
+    ( $modal_axiom_GL
+   == ( [.](
+          ( [.](A)
+         => A ) )
+     => [.](A) ) ) ).
+
+tff(modal_axiom_Grz,definition,
+    ( $modal_axiom_Grz
+   == ( [.]
+          ( [.]
+              ( A
+             => [.](A) )
+         => A )
+     => A ) ) ).
+
+tff(modal_axiom_H,definition,
+    ( $modal_axiom_H
+   == ( [.]
+          ( [.](A)
+         => B )
+      | [.]
+          ( [.](B)
+         => A ) ) ) ).
+
 %------------------------------------------------------------------------------
