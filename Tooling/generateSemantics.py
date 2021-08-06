@@ -3,7 +3,7 @@ import argparse
 import logging
 import sys
 from pathlib import Path
-from collections.abc import Iterable
+from typing import Iterable
 
 logging.basicConfig(level=logging.NOTSET)
 default_template = \
