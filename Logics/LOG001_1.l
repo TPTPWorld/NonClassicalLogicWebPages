@@ -17,10 +17,10 @@
 % The semantics describe the model structure M = (W,R,D,V) with index set I, 
 % where ...
 % - W: set of worlds,
-% - R: each R(i), i in I, is a binary relation on W,
-% - D: each D(w), w in W, is a set of denotations available in world w
-% - V: each V(w), w in W, is a valuation functions assigning a denotation
-%                         to each constant from the signature.
+% - R(i), i in I, is a binary relation on W,
+% - D(w), w in W, is a set of denotations available in world w
+% - V(w), w in W, is a valuation function assigning a denotation to each 
+%                 constant from the signature.
 % - I(w,t), w in W, t a term or formula, is the interpretation of t in w.
 %
 % Semantics parameters: Four dimensions as follows ...
