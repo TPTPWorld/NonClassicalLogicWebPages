@@ -42,7 +42,7 @@ tff(modal_axiom_nnM,definition,
 tff(modal_axiom_RM,definition,
     ( $modal_axiom_RM
    == ( [ ( A
-         => B ) }
+         => B ) ]
     --> [ ( [.](A)
          => [.](B) ) ] ) ) ).
 
@@ -51,7 +51,7 @@ tff(modal_axiom_RM,definition,
 tff(modal_axiom_RE,definition,
     ( $modal_axiom_RE
    == ( [ ( A
-        <=> B ) }
+        <=> B ) ]
     --> [ ( [.](A)
         <=> [.](B) ) ] ) ) ).
 
