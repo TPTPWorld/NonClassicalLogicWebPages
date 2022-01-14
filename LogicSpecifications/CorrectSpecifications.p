@@ -101,5 +101,15 @@ thf(exotic,logic,(
         $consequence == $local,
         $modalities ==
           [ $modal_system_S5,
-            a == $modal_system_KB,
-            b == $modal_system_K ] ] )).
+            [#a] == $modal_system_KB,
+            [#b] == $modal_system_K ] ] )).
+
+thf(exotic,logic,(
+    $modal ==
+      [ $constants == $flexible,
+        $quantification == $cumulative,
+        $consequence == $local,
+        $modalities ==
+          [ $modal_system_S5,
+            {$necessary(#a)} == $modal_system_KB,
+            {$necessary(#b)} == $modal_system_K ] ] )).

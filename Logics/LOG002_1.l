@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : LOG003_1 : TPTP v9.0.0. Released v9.0.0.
+% File     : LOG002_1 : TPTP v9.0.0. Released v9.0.0.
 % Domain   : Generic modal logics
 % Name     : Generic modal logic definitions
 % Version  : Especial.

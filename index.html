@@ -52,10 +52,16 @@ The syntax offers much more - see the section on the
 <HR><!------------------------------------------------------------------------>
 <H2>Connectives Long Form</H2>
 
-Connectives belonging to a logic get unique defined names, e.g., 
+Non-clqssical connectives belonging to a logic get unique defined names, e.g., 
 <TT>$necessary</TT>. 
-The connective is written in <TT>{}</TT> brackets, and the application is 
-functional.
+The connectives are written in <TT>{}</TT> brackets (to indicate that they
+are non-classical, and their semantics has to be defined in a 
+<A HREF="#SemanticsSpecification">semantics specification</A>). 
+System names may also be used for user-defined connectives, e.g.,
+<TT>{$$canadian_conditional}</TT>, thus allowing use of the TPTP syntax when 
+experimenting with logics that have not yet been formalized in the TPTP.
+They are used in prefix form, with the arguments in <TT>()</TT>s for TXN,
+and applied using <TT>@</TT> in THN.
 The BNF grammar is 
 <A HREF="SyntaxBNF.html#long_tnc_connective">here</A>.
 <P>
@@ -162,6 +168,7 @@ Examples:
 Short forms and long forms can be used together, e.g., it’s OK to use 
 <TT>{$necessary}</TT> and <TT>[.]</TT> in the same problem or formula.
 <P>
+<A NAME="SemanticsSpecification"/A>
 <HR><!------------------------------------------------------------------------>
 <H2> Semantics Specification </H2>
 

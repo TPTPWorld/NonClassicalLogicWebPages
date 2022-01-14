@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : LOG003_1 : TPTP v9.0.0. Released v9.0.0.
+% File     : LOG004_1 : TPTP v9.0.0. Released v9.0.0.
 % Domain   : Deontic modal logics
 % Name     : Deontic modal logic definitions
 % Version  : Especial.
