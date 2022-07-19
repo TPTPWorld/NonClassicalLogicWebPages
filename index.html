@@ -70,10 +70,10 @@ Examples:
     tff(pigs_might_fly_type,type,pigs_might_fly: $o ).
 
     tff(no_flying_pigs,axiom,
-        ~ {$possible}(pigs_might_fly) ).
+        ~ ({$possible} @ (pigs_might_fly) ) ).
 
     tff(something_is_possible,axiom,
-        ? [P: $o] : {$possible}(P) ).
+        ? [P: $o] : {$possible} @ (P) ).
 
     thf(forbidden_flying_pigs,axiom,
         {$forbidden} @ pigs_might_fly ).
@@ -95,10 +95,10 @@ Connectives may have a list of parameters, where a parameter is one of:
     tff(an_individual_type,type,me: $i ).
 
     tff(for_me_it_is_possible,axiom,
-        {$possible(#me)}(pigs_might_fly) ).
+        {$possible(#me)} @ (pigs_might_fly) ).
 
     tff(for_me_something_is_possible,axiom,
-        ? [P: $o] : {$possible(#me)}(P) ).
+        ? [P: $o] : {$possible(#me)} @ (P) ).
 
     thf(agent_type,type,agent: $tType ).
 
@@ -153,10 +153,10 @@ The BNF grammar is
 Examples:
 <PRE>
     tff(no_flying_pigs,axiom,
-        ~ <.>(pigs_might_fly) ).
+        ~ (<.> @ (pigs_might_fly) ) ).
 
     tff(for_me_it_is_possible,axiom,
-        <#me>(pigs_might_fly) ).
+        <#me> @ (pigs_might_fly) ).
 
     thf(forbidden_flying_pigs,axiom,
         <.> @ pigs_might_fly ).
@@ -195,11 +195,9 @@ Their existing meaning in classical logic should not be confused with the
 meaning in the declared logic.
 <P>
 For alethic modal logics the properties that may be specified are 
-<TT>$constants</TT>, <TT>$quantification</TT>, <TT>$consequence</TT>, and 
-<TT>$modalities</TT>.
+<TT>$constants</TT>, <TT>$quantification</TT>, and <TT>$modalities</TT>.
 The <TT>$constants</TT>, <TT>$quantification</TT>, and <TT>$modalities</TT> 
-may have individual values for constants and types, and the 
-<TT>$consequence</TT> may have individual values for named axioms.
+may have individual values for constants and types.
 <UL> 
 <LI> <TT>$constants</TT>
      <UL>
@@ -219,22 +217,24 @@ may have individual values for constants and types, and the
           and the domain of each world is a subset of the domains of the
           worlds from which it can be reached.
      </UL>
-<LI> <TT>$consequence</TT>
-     <UL>
-     <LI> <TT>$local</TT> - The formula is assumed to be true in the current 
-          world.
-     <LI> <TT>$global</TT> - The formula is assumed to be true in all worlds.
-     </UL>
 <LI> <TT>$modalities</TT> - These are specified in this
      <A HREF="https://en.wikipedia.org/wiki/Kripke_semantics#Common_modal_axiom_schemata">
      Wikipedia page</A>.
      <UL>
      <LI> A known system name may be given, as listed in
-          <A HREF="Logics/LOG001_2.l"><TT>Logics/LOG001_2.l</TT></A>.
+          <A HREF="https://github.com/TPTPWorld/NonClassicalLogic/blob/master/Logics/LOG001_4.l">
+          <TT>LOG001_4.l</TT></A>.
      <LI> A tuple of known axiom names may be given, as listed in
-          <A HREF="Logics/LOG001_1.l"><TT>Logics/LOG001_1.l</TT></A>.
+          <A HREF="https://github.com/TPTPWorld/NonClassicalLogic/blob/master/Logics/LOG001_3.l">
+          <TT>LOG001_3.l</TT></A>.
      </UL>
 </UL>
+The formulae of a problem can be either local (true in the current world)
+or global (true in all worlds).
+By default formulae with the roles {\tt hypothesis} and {\tt conjecture}
+are local, and all others are global.
+These defaults can be overridden by adding a subrole, e.g., 
+{\tt axiom-\$local}, {\tt conjecture-\$global}.
 <P>
 See 
 <A HREF="LogicSpecifications/CorrectSpecifications.p">
@@ -254,6 +254,7 @@ A tool to check the sanity of a specification is available.
      <LI> TXN for "Typed first-order eXtended Non-classical"
      <LI> THN for "Typed Higher-order Non-classical"
      </UL>
+<!--
 <LI> The filename separators will be
      <UL>
      <LI> <TT>~</TT> for TXN problems
@@ -263,6 +264,7 @@ A tool to check the sanity of a specification is available.
      I tried <TT>%</TT> for THN but that causes problems in web services.
      I tried <TT>;</TT> for TXN (to be a lesser version of <TT>:</TT>) but
      that messes with UNIX.
+-->
 </UL>
 
 <P>
@@ -278,25 +280,25 @@ The embedding tool is available as Logic2THF in
 output from which can be given to any THF system.
 
 <UL>
-<LI> <A HREF="Problems/PUZ087~1.p">Wise men puzzle, TFF, epistemic modal
+<LI> <A HREF="Problems/PUZ087_1.p">Wise men puzzle, TFF, epistemic modal
      logic, long connectives, indices and constants overlap</A>
-<LI> <A HREF="Problems/PUZ087~2.p">Wise men puzzle, TFF, epistemic modal
+<LI> <A HREF="Problems/PUZ087_2.p">Wise men puzzle, TFF, epistemic modal
      logic, long connectives, indices and constants distinct</A>
-<LI> <A HREF="Problems/PUZ087~3.p">Wise men puzzle, TFF, generic modal
+<LI> <A HREF="Problems/PUZ087_3.p">Wise men puzzle, TFF, generic modal
      logic, short connectives, indices and constants distinct</A>
-<LI> <A HREF="Problems/PUZ087:1.p">Wise men puzzle, THF, epistemic modal
+<LI> <A HREF="Problems/PUZ087^1.p">Wise men puzzle, THF, epistemic modal
      logic, long connectives, indices and constants overlap</A>
-<LI> <A HREF="Problems/PUZ087:2.p">Wise men puzzle, THF, epistemic modal
+<LI> <A HREF="Problems/PUZ087^2.p">Wise men puzzle, THF, epistemic modal
      logic, long connectives, indices and constants distinct</A>
-<LI> <A HREF="Problems/PUZ087:3.p">Wise men puzzle, THF, generic modal
+<LI> <A HREF="Problems/PUZ087^3.p">Wise men puzzle, THF, generic modal
      logic, short connectives, indices and constants distinct</A>
-<LI> <A HREF="Problems/PUZ149~1.p">Bungling chemists, TFF, alethic modal
+<LI> <A HREF="Problems/PUZ149_1.p">Bungling chemists, TFF, alethic modal
      logic, short connectives</A>
-<LI> <A HREF="Problems/PUZ149:1.p">Bungling chemists, THF, alethic modal
+<LI> <A HREF="Problems/PUZ149^1.p">Bungling chemists, THF, alethic modal
      logic, long connectives</A>
-<LI> <A HREF="Problems/LCL870:1.p">Barcan formula, THF, generic modal
+<LI> <A HREF="Problems/LCL870^1.p">Barcan formula, THF, generic modal
      logic, short connectives</A>
-<LI> <A HREF="Problems/LCL871:1.p">Converse Barcan formula, THF, generic 
+<LI> <A HREF="Problems/LCL871^1.p">Converse Barcan formula, THF, generic 
      modal logic, short connectives</A>
 </UL>
 <HR><!------------------------------------------------------------------------>
@@ -305,8 +307,9 @@ output from which can be given to any THF system.
 The various logics, the syntax used, the axiom schemes, and the semantics 
 specification, are being semi-formally documented in a machine readable form.
 This work is available in the
-<A HREF="https://github.com/TPTPWorld/NonClassicalLogicWebPages/tree/master/Logics">Logics directory of the Github repository</A>.
-
+<A HREF="https://github.com/TPTPWorld/NonClassicalLogic/tree/master/Logics">
+Logics directory</A> of the 
+<A HREF="https://github.com/TPTPWorld/NonClassicalLogic">Github repository</A>.
 <P>
 <A NAME="ExoticFuture">
 <HR><!------------------------------------------------------------------------>

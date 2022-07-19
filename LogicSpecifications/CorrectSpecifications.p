@@ -3,10 +3,8 @@
 % Example problem with "standard" semantics: TODO
 thf(simple_s5,logic,(
     $modal ==
-      [ $logicfile == 'LOG002_1.l',
-        $constants == $rigid,
+      [ $constants == $rigid,
         $quantification == $constant,
-        $consequence == $global,
         $modalities == $modal_system_S5 ] )).
 
 %----Standard S5 version 2
@@ -15,7 +13,6 @@ thf(simple_s5_v3,logic,(
     $modal ==
       [ $constants == $rigid,
         $quantification == $constant,
-        $consequence == $global,
         $modalities ==
           [ $modal_axiom_K,
             $modal_axiom_T,
@@ -35,12 +32,10 @@ thf(king_of_france_constant,type,(
 
 thf(constants,logic,(
     $modal ==
-      [ $logicfile == 'LOG002_1.l',
-        $constants ==
+      [ $constants ==
           [ $constant,
             king_of_france == $flexible ],
         $quantification == $constant,
-        $consequence == $global,
         $modalities == $modal_system_S5 ] )).
 
 
@@ -57,12 +52,10 @@ thf(plushie_type,type,(
 
 thf(quantification,logic,(
     $modal ==
-      [ $logicfile == 'LOG002_1.l',
-        $constants == $rigid,
+      [ $constants == $rigid,
         $quantification ==
           [ $constant,
             plushie == $varying ],
-        $consequence == $global,
         $modalities == $modal_system_S5 ] )).
 
 
@@ -80,12 +73,8 @@ thf(ax1,axiom,(
 
 thf(different_consequence,logic,(
     $modal ==
-      [ $logicfile == 'LOG002_1.l',
-        $constants == $rigid,
+      [ $constants == $rigid,
         $quantification == $constant,
-        $consequence ==
-          [ $global,
-            ax1 == $local ],
         $modalities == $modal_system_S5 ] )).
 
 
@@ -98,7 +87,6 @@ thf(exotic,logic,(
     $modal ==
       [ $constants == $flexible,
         $quantification == $cumulative,
-        $consequence == $local,
         $modalities ==
           [ $modal_system_S5,
             [#a] == $modal_system_KB,
@@ -108,7 +96,6 @@ thf(exotic,logic,(
     $modal ==
       [ $constants == $flexible,
         $quantification == $cumulative,
-        $consequence == $local,
         $modalities ==
           [ $modal_system_S5,
             {$necessary(#a)} == $modal_system_KB,
