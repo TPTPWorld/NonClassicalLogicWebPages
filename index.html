@@ -245,27 +245,80 @@ It is possible to create a lot of nonsense specifications, and to say the
 same thing in different meaningful ways.
 A tool to check the sanity of a specification is available.
 <P>
+<A NAME="TPTPLogics"</A>
 <HR><!------------------------------------------------------------------------>
-<H2> TPTP Pragmatics </H2>
+<H2> TPTP Logics </H2>
 
-<UL>
-<LI> The language TLAs will be 
-     <UL>
-     <LI> TXN for "Typed first-order eXtended Non-classical"
-     <LI> THN for "Typed Higher-order Non-classical"
-     </UL>
-<!--
-<LI> The filename separators will be
-     <UL>
-     <LI> <TT>~</TT> for TXN problems
-     <LI> <TT>:</TT> for THN problems
-     </UL>
-     I wanted to use <TT>#</TT> for THN but that causes problems in URLs.
-     I tried <TT>%</TT> for THN but that causes problems in web services.
-     I tried <TT>;</TT> for TXN (to be a lesser version of <TT>:</TT>) but
-     that messes with UNIX.
--->
-</UL>
+<TABLE BORDER=1>
+<TR VALIGN=TOP>
+     <TH ALIGN=LEFT> Logic
+     <TH ALIGN=LEFT> Name
+     <TH ALIGN=LEFT> Connectives
+     <TH ALIGN=LEFT> Semantics
+<TR VALIGN=TOP> 
+     <TD> Generic modal
+     <TD> <TT>$modal</TT>
+     <TD> <TT>$box</TT>, <TT>$dia</TT>
+     <TD> <TT>$modal == 
+              [ $constants == <EM>C</EM>, 
+                $quantification == <EM>Q</EM>, 
+                $modalities == <EM>M</EM> ]</TT>
+          <UL>
+          <LI> <TT><EM>C</EM> &isin; { $rigid, $flexible }</TT>
+          <LI> <TT><EM>Q</EM> &isin; 
+                   { $constant, $varying, $cumulative, $decreasing }</TT>
+          <LI> <TT><EM>M</EM> == $modal_system_<EM>Sys</EM> | 
+               [ $modal_axiom_<EM>Ax<SUB>1</SUB></EM>,
+                 $modal_axiom_<EM>Ax<SUB>2</SUB></EM>, ... ]</TT>
+               <UL>
+               <LI> <TT><EM>Sys</EM> &isin;
+                    { K,KB,K4,K5,K45,KB5,D,DB,D4,D5,D45,T,B,S4,S5,S5U }</TT>
+               <LI> <TT><EM>Ax</EM> &isin;
+                    { K,T,B,D,4,5,CD,BoxM,C4,C }</TT>
+               </UL>
+          </UL>
+<TR VALIGN=TOP> 
+     <TD> Alethic modal
+     <TD> <TT>$alethic_modal</TT>
+     <TD> <TT>$necessary</TT>, <TT>$possible</TT>
+     <TD> <TT>$alethic_modal ==</TT> as for <TT>$modal</TT>
+<TR VALIGN=TOP> 
+     <TD> Deontic modal
+     <TD> <TT>$deontic_modal</TT>
+     <TD> <TT>$obligatory</TT>, <TT>$permissible</TT>
+     <TD> <TT>$deontic_modal ==</TT> as for <TT>$modal</TT>
+<TR VALIGN=TOP> 
+     <TD> Epistemic modal
+     <TD> <TT>$epistemic_modal</TT>
+     <TD> <TT>$knows</TT>, <TT>$believes</TT>
+     <TD> <TT>$epistemic_modal ==</TT> as for <TT>$modal</TT>
+<TR VALIGN=TOP> 
+     <TD> Temporal (instance)
+     <TD> <TT>$temporal_instance</TT>
+     <TD> <TT>$future</TT>, <TT>$past</TT>, 
+          <TT>$henceforth</TT>, <TT>$hitherto</TT>
+     <TD> <TT>$temporal_instance ==
+              [ $constants == <EM>C</EM>,
+                $quantification == <EM>Q</EM>,
+                $modalities == <EM>M</EM>,
+                $time == <EM>T</EM> ]</TT>
+          <UL>
+          <LI> <TT><EM>C</EM> and <EM>Q</EM></TT> as for <TT>$modal</TT>
+          <LI> <TT><EM>M</EM> ==
+               [ $modal_axiom_<EM>AxTm<SUB>1</SUB></EM>,
+                 $modal_axiom_<EM>AxTm<SUB>2</SUB></EM>, ... ]</TT>
+               <UL>
+               <LI> <TT><EM>Ax</EM> &isin; { K,T,B,D,4,5 }</TT>
+               <LI> <TT><EM>Tm</EM> &isin; { +,- }</TT>
+               </UL>
+          <LI> <TT><EM>T</EM> &isin;
+               { $reflexivity, $irreflexivity, $transitivity,
+                 $asymmetry, $anti_symmetry,
+                 $linearity, $forward_linearity, $backward_linearity,
+                 $beginning, $end, $no_beginning, $no_end,
+                 $density, $forward_discreteness, $backward_discreteness }</TT>
+          </UL>
+</TABLE>
 
 <P>
 <HR><!------------------------------------------------------------------------>
